@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--! android:drawableLeft="@drawable/ic_baseline_access_time_24"-->
+<!--  android:background="@drawable/rectangle" -->
+<!-- app:shapeAppearanceOverlay="@style/roundedimageview"
+ android:fontFamily="@font/montserrat_alternates_bold"
+  android:fontFamily="@font/montserrat_alternates_bold"
+    android:fontFamily="@font/montserrat_medium"
+      android:src="@drawable/parking" -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:id="@+id/parkingCard"
+    android:paddingStart="4dp"
+    android:padding="10dp"
+    android:layout_margin="5dp"
+    android:elevation="2dp"
+    android:background="@drawable/bg_constraintlayout">
+
+
+
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="5dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
+
+        app:shapeAppearanceOverlay="@style/roundedimageview"
+        />
+
+  <!--  <ImageView
+        android:id="@+id/favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/ic_baseline_favorite_border_24"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/> -->
+    <TextView
+        android:id="@+id/textViewEtat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Ferme"
+        android:textColor="#F00"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewTaux"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+
+        android:text="65%"
+        app:layout_constraintStart_toEndOf="@+id/textViewEtat"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-1dp"
+        android:text="Parking jardin d'essai"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEtat"
+        app:layout_constraintStart_toEndOf="@+id/imageView"/>
+
+
+
+
+
+    <TextView
+        android:id="@+id/textViewlocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Hussein dey . Alger"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewTitre"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitre" />
+
+    <TextView
+        android:id="@+id/textViewKilom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:drawablePadding="3dp"
+        android:text="12,95 Km"
+        app:layout_constraintStart_toEndOf="@+id/textViewTime"
+        app:layout_constraintTop_toBottomOf="@+id/textViewlocation" />
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/ratingBarStyleSmall"
+        android:numStars="5"
+        android:stepSize="0.1"
+        android:isIndicator="true"
+        android:rating="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewKilom"
+        android:theme="@style/RatingBar"/>
+    <TextView
+        android:id="@+id/textViewTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="30dp"
+
+        android:text="14 min"
+        app:layout_constraintTop_toBottomOf="@+id/textViewlocation"
+        app:layout_constraintStart_toStartOf="@+id/textViewlocation"
+
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

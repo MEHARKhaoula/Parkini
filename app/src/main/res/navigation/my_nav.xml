@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/parkingListFragment">
+
+    <fragment
+        android:id="@+id/parkingListFragment"
+        android:name="com.example.projettdm.ParkingListFragment"
+        android:label="fragment_parking_list"
+        tools:layout="@layout/fragment_parking_list" >
+        <action
+            android:id="@+id/action_parkingListFragment_to_parkingDetailFragment"
+            app:destination="@id/parkingDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/parkingDetailFragment"
+        android:name="com.example.projettdm.ParkingDetailFragment"
+        android:label="fragment_parking_detail"
+        tools:layout="@layout/fragment_parking_detail" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.projettdm.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_reservationFragment2"
+            app:destination="@id/reservationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reservationFragment"
+        android:name="com.example.projettdm.ReservationFragment"
+        android:label="fragment_reservation"
+        tools:layout="@layout/fragment_reservation" />
+</navigation>
