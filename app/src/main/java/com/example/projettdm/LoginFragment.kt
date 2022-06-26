@@ -7,10 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
 import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -20,6 +17,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.w3c.dom.Text
 
 
 class LoginFragment : Fragment() {
@@ -27,8 +25,10 @@ class LoginFragment : Fragment() {
     lateinit var login: Button
     lateinit var email: EditText
     lateinit var password: EditText
+    lateinit var signUp: TextView
     lateinit var navController: NavController
     lateinit var userViewModel: UserViewModel
+
 
 
 
@@ -42,7 +42,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        signUp= view.findViewById(R.id.TextSignUp) as TextView
         login = view.findViewById(R.id.login) as Button
         email = view.findViewById(R.id.editTextEmail) as EditText
         password = view.findViewById(R.id.editTextPassword) as EditText
@@ -54,6 +54,14 @@ class LoginFragment : Fragment() {
         if (userConnected == true) {
             navController.navigate(R.id.action_loginFragment_to_reservationFragment2)
         }
+
+
+        signUp.setOnClickListener{
+
+            navController.navigate(R.id.action_loginFragment_to_fragment_inscription)
+
+        }
+
         login.setOnClickListener {
 
             CoroutineScope(Dispatchers.IO).launch {

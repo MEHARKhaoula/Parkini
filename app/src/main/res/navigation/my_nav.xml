@@ -26,10 +26,24 @@
         <action
             android:id="@+id/action_loginFragment_to_reservationFragment2"
             app:destination="@id/reservationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_fragment_inscription"
+            app:destination="@id/fragment_inscription" />
     </fragment>
     <fragment
         android:id="@+id/reservationFragment"
         android:name="com.example.projettdm.ReservationFragment"
         android:label="fragment_reservation"
         tools:layout="@layout/fragment_reservation" />
+    <fragment
+        android:id="@+id/fragment_inscription"
+        android:name="com.example.projettdm.fragment_inscription"
+        android:label="fragment_inscription"
+        tools:layout="@layout/fragment_inscription" >
+        <action
+            android:id="@+id/action_fragment_inscription_to_loginFragment2"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+
 </navigation>

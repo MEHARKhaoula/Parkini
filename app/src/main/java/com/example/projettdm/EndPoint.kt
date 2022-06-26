@@ -1,12 +1,25 @@
 package com.example.projettdm
+import com.google.gson.GsonBuilder
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 
 
 interface Endpoint {
+
+
+    @GET("reservationgetplace/{idparking}")
+    suspend fun getPlaceVide(@Path("idparking") idparking: Int): Response<List<Int>>
+
+    @POST("setusers")
+    suspend fun setUser(@Body user:UserModel): Response<UserModel>
+
+    @POST("setreservation")
+    suspend fun setReservation(@Body reservation:ReservationModel): Response<UserModel>
 
 
     @GET("getparkings")
@@ -21,8 +34,11 @@ interface Endpoint {
         var endpoint: Endpoint? = null
         fun createEndpoint(): Endpoint {
             if(endpoint ==null) {
-                endpoint = Retrofit.Builder().baseUrl("https://7cb4-105-235-129-171.eu.ngrok.io").addConverterFactory(
-                    GsonConverterFactory.create()).build().create(
+                val gson =  GsonBuilder()
+                    .setDateFormat("dd-MM-YYYY")
+                    .create()
+                endpoint = Retrofit.Builder().baseUrl("https://04ae-105-98-159-239.eu.ngrok.io").addConverterFactory(
+                    GsonConverterFactory.create(gson)).build().create(
                     Endpoint::class.java)
             }
             return endpoint!!

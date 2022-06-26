@@ -14,6 +14,20 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- Theme.AppCompat.Light.Dialog -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- This is main Theme Style for your application! -->
+        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
+    </style>
+
+    <style name="MyDatePickerDialogTheme" parent="android:Theme.Material.Dialog">
+        <item name="android:datePickerStyle">@style/MyDatePickerStyle</item>
+    </style>
+
+    <style name="MyDatePickerStyle" parent="@android:style/Widget.Material.DatePicker">
+        <item name="android:headerBackground">#A500FF</item>
+    </style>
+
 
     <style name="roundedimageview">
         <item name="cornerFamily" >rounded</item>
