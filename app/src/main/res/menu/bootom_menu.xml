@@ -14,13 +14,10 @@
         android:title="Reservations"
         android:visible="true" />
 
-
-
-
     <item
-        android:id="@+id/fragment3"
+        android:id="@+id/myMapFragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_directions_car_24"
-        android:title="Profil"
+        android:title="map"
         android:visible="true" />
 </menu>

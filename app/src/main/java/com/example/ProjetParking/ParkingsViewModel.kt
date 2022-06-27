@@ -1,9 +1,6 @@
-package com.example.projettdm
+package com.example.ProjetParking
 
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.*
 
 class ParkingViewModel: ViewModel() {
