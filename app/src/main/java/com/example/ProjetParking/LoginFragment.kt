@@ -1,7 +1,9 @@
 package com.example.ProjetParking
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +13,18 @@ import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.lang.Exception
 
 
 class LoginFragment : Fragment() {
@@ -25,6 +35,10 @@ class LoginFragment : Fragment() {
     lateinit var signUp: TextView
     lateinit var navController: NavController
     lateinit var userViewModel: UserViewModel
+
+    private lateinit var googleSignInClient : GoogleSignInClient
+    private lateinit var mAuth: FirebaseAuth
+    lateinit var googleSignBtn : ImageView
 
 
 
@@ -39,6 +53,33 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        //sign in with google
+        googleSignBtn = view.findViewById(R.id.imageView3) as ImageView
+        googleSignBtn.setOnClickListener {
+            Log.d("GOOGLE_SIGN_IN_TAG","on create: begin Google S")
+            val intent = googleSignInClient.signInIntent
+            startActivityForResult(intent, 100)
+        }
+
+
+        val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken("497763760797-mo96pj3g00hf3k2fuhc18sb9pthhsggm.apps.googleusercontent.com")
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(requireActivity(), googleSignInOptions)
+
+        mAuth = FirebaseAuth.getInstance()
+
+
+
+
+
+
+
+
+
+        //sign in with email and address
         signUp= view.findViewById(R.id.TextSignUp) as TextView
         login = view.findViewById(R.id.login) as Button
         email = view.findViewById(R.id.editTextEmail) as EditText
@@ -48,6 +89,8 @@ class LoginFragment : Fragment() {
 
         val pref = this.getActivity()?.getSharedPreferences("data", Context.MODE_PRIVATE)
         val userConnected = pref?.getBoolean("Connected", false)
+
+
         if (userConnected == true) {
             navController.navigate(R.id.action_loginFragment_to_reservationFragment2)
         }
@@ -89,6 +132,66 @@ class LoginFragment : Fragment() {
 
     }
 
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == 100)
+        {
+            Log.d("GOOGLE_SIGN_IN_TAG","onActivityResult: Google SignIn intent result")
+            val accountTask = GoogleSignIn.getSignedInAccountFromIntent(data)
+            val exception = accountTask.exception
+            if(accountTask.isSuccessful)
+            {
+                try{
+                    val account = accountTask.getResult(ApiException::class.java)
+                    firebaseAuthWithGoogle(account)
+                }
+                catch (e: Exception)
+                {
+                    Log.d("GOOGLE_SIGN_IN_TAG1000", "onActivityResult: ${e.message}")
+                }
+            }
+            else{
+                Log.d("GOOGLE_SIGN_IN_TAG1000", "onActivityResult: ${exception.toString()}")
+            }
+        }
+    }
+
+    private fun firebaseAuthWithGoogle(account: GoogleSignInAccount?) {
+        Log.d("GOOGLE_SIGN_IN_TAG","firebaseAuthWithGoogleAccount begin firebase auth with google account")
+        val credential = GoogleAuthProvider.getCredential(account!!.idToken,null)
+        mAuth.signInWithCredential(credential).addOnSuccessListener {
+                authResult ->
+            Log.d("GOOGLE_SIGN_IN_TAG","firebaseAuthGoogleAccount:Logged")
+            val firebaseUser = mAuth.currentUser
+
+            val uid = mAuth.uid
+            val email = firebaseUser?.email
+            Log.d("GOOGLE_SIGN_IN_TAG","Uid: $uid")
+            Log.d("GOOGLE_SIGN_IN_TAG","email$email")
+
+            navController.navigate(R.id.action_loginFragment_to_reservationFragment2)
+
+            /*   if(authResult.additionalUserInfo!!.isNewUser)
+               {
+                   Log.d("GOOGLE_SIGN_IN_TAG","firebaseAuthWithGoogleAccount: Account created.. \n$email")
+                   Toast.makeText(this," Account created.. \n$email", Toast.LENGTH_SHORT).show()
+               }
+
+               else
+               {
+                   Log.d("GOOGLE_SIGN_IN_TAG","firebaseAuthWithGoogleAccount: Existing user")
+                   Toast.makeText(this," LoggedIn.. \n$email", Toast.LENGTH_SHORT).show()
+               }*/
+
+        }
+            .addOnFailureListener {
+                    e->
+                Log.d("GOOGLE_SIGN_IN_TAG", "firebaseAuthWithGoogleAccount: Loggin failed due to ${e.message}")
+                Toast.makeText(this.requireActivity(),"Loggin failed due to ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
 
 
 }
