@@ -13,6 +13,8 @@ import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 
 class MyAdapter(val context: Context,
@@ -34,6 +36,14 @@ class MyAdapter(val context: Context,
             location.text = data[position].commune
             kilom.text = data[position].distance.toString()+" km"
             time.text = data[position].tempsestime.toString()+" min"
+
+            val REAL_FORMATTER = DecimalFormat("0.###")
+            val num1 =( data[position].nbrplaceslibres).toDouble()
+            val num2 =( data[position].nbrplaces).toDouble()
+            val result: Double = (num1/num2)*100
+            val nm: NumberFormat = NumberFormat.getNumberInstance()
+            taux.text =REAL_FORMATTER.format(result)+" %";
+
             
           Glide.with(context).load( data[position].photo).into(holder.photo)
             parkingCard.setOnClickListener {
@@ -69,6 +79,7 @@ class MyAdapter(val context: Context,
         val parkingCard = view.findViewById(R.id.parkingCard) as ConstraintLayout
         val photo =view.findViewById<View>(R.id.imageView) as ImageView
         val ratingBar=view.findViewById<RatingBar>(R.id.rating) as RatingBar
+        val taux= view.findViewById(R.id.textViewTaux) as TextView
 
     }
 

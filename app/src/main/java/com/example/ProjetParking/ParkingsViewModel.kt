@@ -52,14 +52,15 @@ class ParkingViewModel: ViewModel() {
             val currParkingLat =item!!.latitude
             val currParkingLng = item!!.longitude
             val currDistance = calcDistance(targetLat, targetLng, currParkingLat, currParkingLng)
-            if ( minDistance == -1.0 || currDistance < minDistance) {
+            if (  currDistance < 5) {
                 minDistance = currDistance
                 nearestParking = item
+                searchData.add(nearestParking)
             }
         }
-        if (nearestParking != null) {
+     /*   if (nearestParking != null) {
             searchData.add(nearestParking)
-        }
+        }*/
 
         return searchData
 
@@ -78,6 +79,7 @@ class ParkingViewModel: ViewModel() {
         dist = Math.acos(dist)
         dist = dist * 180/Math.PI
         dist = dist * 60 * 1.1515
+        dist=dist*1.609344
 
         return dist;
     }

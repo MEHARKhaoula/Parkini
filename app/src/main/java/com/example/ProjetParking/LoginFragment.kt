@@ -54,13 +54,26 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        val pref = this.getActivity()?.getSharedPreferences("data", Context.MODE_PRIVATE)
+        val userConnected = pref?.getBoolean("Connected", false)
         userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
+
+
         //sign in with google
+        mAuth = FirebaseAuth.getInstance()
         googleSignBtn = view.findViewById(R.id.imageView3) as ImageView
         googleSignBtn.setOnClickListener {
             Log.d("GOOGLE_SIGN_IN_TAG","on create: begin Google S")
             val intent = googleSignInClient.signInIntent
             startActivityForResult(intent, 100)
+            val firebaseUser = mAuth.currentUser
+            if(firebaseUser != null)
+            {
+                pref?.edit {
+                    putBoolean("Connected", true)
+                }
+            }
+
         }
 
 
@@ -70,7 +83,7 @@ class LoginFragment : Fragment() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), googleSignInOptions)
 
-        mAuth = FirebaseAuth.getInstance()
+
 
 
 
@@ -88,8 +101,7 @@ class LoginFragment : Fragment() {
         navController = Navigation.findNavController(view)
 
 
-        val pref = this.getActivity()?.getSharedPreferences("data", Context.MODE_PRIVATE)
-        val userConnected = pref?.getBoolean("Connected", false)
+
 
 
 
@@ -170,17 +182,14 @@ class LoginFragment : Fragment() {
             Log.d("GOOGLE_SIGN_IN_TAG","firebaseAuthGoogleAccount:Logged")
             val firebaseUser = mAuth.currentUser
 
-            val uid = mAuth.uid
-            val email = firebaseUser?.email
 
-            Log.d("GOOGLE_SIGN_IN_TAG","Uid: $uid")
-            Log.d("GOOGLE_SIGN_IN_TAG","email$email")
 
-          /*  if(authResult.additionalUserInfo!!.isNewUser)
+           if(authResult.additionalUserInfo!!.isNewUser)
             {
                 val user = UserModel(70,firebaseUser!!.displayName.toString(),firebaseUser!!.displayName.toString(),firebaseUser!!.phoneNumber.toString(),firebaseUser!!.email.toString(),"mot_de_passe")
              userViewModel.setUser(user)
-            }*/
+             userViewModel.data.add(user)
+            }
 
             navController.navigate(R.id.action_loginFragment_to_reservationFragment2)
 

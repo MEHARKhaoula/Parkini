@@ -70,7 +70,7 @@ class ParkingDetailFragment : Fragment() {
             view.findViewById<TextView>(R.id.textViewTitre).text = parking.nom
             view.findViewById<TextView>(R.id.textViewKilom).text = parking.distance.toString()
             view.findViewById<TextView>(R.id.textViewEtat).text = parking.etat
-            view.findViewById<TextView>(R.id.TextViewTaux).text = (parking.nbrplaceslibre/parking.nbrplaces).toString()
+            view.findViewById<TextView>(R.id.TextViewTaux).text = (parking.nbrplaceslibres/parking.nbrplaces).toString()
             view.findViewById<TextView>(R.id.textViewTime).text = parking.heuredebut+""+"a"+""+parking.heurefin
             view.findViewById<TextView>(R.id.textViewlocation).text = parking.commune
             view.findViewById<TextView>(R.id.TextViewJour).text =""
