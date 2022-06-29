@@ -104,7 +104,7 @@ class LoginFragment : Fragment() {
 
         }
 
-        login.setOnClickListener {
+       login.setOnClickListener {
 
             CoroutineScope(Dispatchers.IO).launch {
                 val response = Endpoint.createEndpoint().login(email.text.toString(), password.text.toString())

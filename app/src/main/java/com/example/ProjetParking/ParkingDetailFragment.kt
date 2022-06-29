@@ -29,7 +29,10 @@ class ParkingDetailFragment : Fragment() {
     lateinit var userViewModel: UserViewModel
     lateinit var sdf:SimpleDateFormat
     lateinit var  myCalendar:Calendar
+    lateinit var parking:ParkingModel
+
     var  position: Int = 0
+    var search:Boolean=false
     var placeVide = mutableListOf<Int>()
 
 
@@ -53,12 +56,16 @@ class ParkingDetailFragment : Fragment() {
         navController = Navigation.findNavController(view)
 
          position= arguments?.getInt("position")!!
-
-
+        search = arguments?.getBoolean("search")!!
 
 
         parkingViewModel = ViewModelProvider(requireActivity()).get(ParkingViewModel::class.java)
-        val parking= position?.let { parkingViewModel.data.get(it) }
+        if(search == true)
+
+             parking= position?.let { parkingViewModel.searchData.get(it) }
+
+        else
+       parking= position?.let { parkingViewModel.data.get(it) }
         if (parking != null) {
             view.findViewById<TextView>(R.id.textViewTitre).text = parking.nom
             view.findViewById<TextView>(R.id.textViewKilom).text = parking.distance.toString()

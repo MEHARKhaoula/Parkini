@@ -18,11 +18,11 @@ import kotlinx.coroutines.*
 import java.io.IOException
 
 
-class ParkingListFragment : Fragment(),SearchView.OnQueryTextListener {
+class ParkingListFragment : Fragment() {
 
     lateinit var navController: NavController
     lateinit var parkingViewModel: ParkingViewModel
-   lateinit var recyclerView: RecyclerView
+    lateinit var recyclerView: RecyclerView
     lateinit var searchView: SearchView
 
 
@@ -54,7 +54,7 @@ class ParkingListFragment : Fragment(),SearchView.OnQueryTextListener {
         }
         else
         {
-            recyclerView.adapter = MyAdapter(requireActivity(), parkingViewModel.data)
+            recyclerView.adapter = MyAdapter(requireActivity(), parkingViewModel.data,false)
         }
 
         val   p1 = getLocationFromAddress("Lycée Ahmed Zabana Caroubier")
@@ -107,7 +107,7 @@ class ParkingListFragment : Fragment(),SearchView.OnQueryTextListener {
                 if (response.isSuccessful && response.body() != null)  {
 
                     parkingViewModel.data = response.body()!!.toMutableList()
-                  recyclerView.adapter = MyAdapter(requireActivity(), parkingViewModel.data)
+                  recyclerView.adapter = MyAdapter(requireActivity(), parkingViewModel.data,false)
 
                 } else
                 {
@@ -123,40 +123,7 @@ class ParkingListFragment : Fragment(),SearchView.OnQueryTextListener {
 
 
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-       // super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.main_menu, menu)
 
-        val search = menu?.findItem(R.id.menu_search)
-        val searchView = search?.actionView as? SearchView
-        searchView?.isSubmitButtonEnabled = true
-        searchView?.queryHint="Search something"
-        searchView?.setOnQueryTextListener(this)
-    }
-
-
-
-
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        if(query != null){
-         val p =   getLocationFromAddress(query)
-            if (p != null) {
-                search(p)
-            }
-
-        }
-
-
-        else
-        {
-            recyclerView.adapter = MyAdapter(requireActivity(), parkingViewModel.data)
-        }
-        return true
-    }
-
-    override fun onQueryTextChange(newText: String?): Boolean {
-        return true
-    }
 
     fun getLocationFromAddress(strAddress: String?): LatLng? {
         val coder = Geocoder(this.activity)
@@ -187,7 +154,7 @@ class ParkingListFragment : Fragment(),SearchView.OnQueryTextListener {
     {
       parkingViewModel.searchData =  parkingViewModel.getSearchParking(p.latitude,p.longitude)
 
-                recyclerView.adapter = MyAdapter(requireActivity(), parkingViewModel.searchData)
+                recyclerView.adapter = MyAdapter(requireActivity(), parkingViewModel.searchData,true)
 
 
     }

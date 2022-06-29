@@ -60,7 +60,7 @@ class ParkingViewModel: ViewModel() {
         if (nearestParking != null) {
             searchData.add(nearestParking)
         }
-        data = mutableListOf<ParkingModel>()
+
         return searchData
 
     }
