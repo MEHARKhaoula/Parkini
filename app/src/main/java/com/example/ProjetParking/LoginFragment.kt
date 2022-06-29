@@ -54,6 +54,7 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
         //sign in with google
         googleSignBtn = view.findViewById(R.id.imageView3) as ImageView
         googleSignBtn.setOnClickListener {
@@ -85,10 +86,11 @@ class LoginFragment : Fragment() {
         email = view.findViewById(R.id.editTextEmail) as EditText
         password = view.findViewById(R.id.editTextPassword) as EditText
         navController = Navigation.findNavController(view)
-        userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
+
 
         val pref = this.getActivity()?.getSharedPreferences("data", Context.MODE_PRIVATE)
         val userConnected = pref?.getBoolean("Connected", false)
+
 
 
         if (userConnected == true) {
@@ -114,6 +116,8 @@ class LoginFragment : Fragment() {
 
                             pref?.edit {
                                 putBoolean("Connected", true)
+
+
                             }
                             navController.navigate(R.id.action_loginFragment_to_reservationFragment2)
 
@@ -168,22 +172,19 @@ class LoginFragment : Fragment() {
 
             val uid = mAuth.uid
             val email = firebaseUser?.email
+
             Log.d("GOOGLE_SIGN_IN_TAG","Uid: $uid")
             Log.d("GOOGLE_SIGN_IN_TAG","email$email")
 
+          /*  if(authResult.additionalUserInfo!!.isNewUser)
+            {
+                val user = UserModel(70,firebaseUser!!.displayName.toString(),firebaseUser!!.displayName.toString(),firebaseUser!!.phoneNumber.toString(),firebaseUser!!.email.toString(),"mot_de_passe")
+             userViewModel.setUser(user)
+            }*/
+
             navController.navigate(R.id.action_loginFragment_to_reservationFragment2)
 
-            /*   if(authResult.additionalUserInfo!!.isNewUser)
-               {
-                   Log.d("GOOGLE_SIGN_IN_TAG","firebaseAuthWithGoogleAccount: Account created.. \n$email")
-                   Toast.makeText(this," Account created.. \n$email", Toast.LENGTH_SHORT).show()
-               }
 
-               else
-               {
-                   Log.d("GOOGLE_SIGN_IN_TAG","firebaseAuthWithGoogleAccount: Existing user")
-                   Toast.makeText(this," LoggedIn.. \n$email", Toast.LENGTH_SHORT).show()
-               }*/
 
         }
             .addOnFailureListener {

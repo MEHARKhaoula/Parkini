@@ -15,7 +15,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 class MyMapFragment : SupportMapFragment(), OnMapReadyCallback {
     private var googleMap: GoogleMap? = null
     lateinit var parkingViewModel: ParkingViewModel
-     var  arrayList = ArrayList<LatLng>()
+
     override fun onMapReady(gmap: GoogleMap) {
 
         parkingViewModel = ViewModelProvider(requireActivity()).get(ParkingViewModel::class.java)
@@ -24,11 +24,10 @@ class MyMapFragment : SupportMapFragment(), OnMapReadyCallback {
         for(item in  parkingViewModel.data )
         {
 
-            googleMap!!.addMarker(MarkerOptions().position(LatLng(item.latitude,item.longitude)).title("Mark" +
-                    "er in Algeria"))
+            googleMap!!.addMarker(MarkerOptions().position(LatLng(item.latitude,item.longitude)).title(item.nom))
             googleMap!!.animateCamera(CameraUpdateFactory.zoomTo( 10.0f))
             googleMap!!.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(item.latitude,item.longitude) ,
-                18.0F
+                10.0F
             ))
         }
 
