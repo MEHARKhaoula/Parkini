@@ -1,5 +1,6 @@
-package com.example.projettdm
+package com.example.ProjetParking
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,7 @@ import com.bumptech.glide.Glide
 
 
 class MyAdapter(val context: Context,
-                var data:List<ParkingModel>,
+                var data:List<ParkingModel>,val search:Boolean
 
 ):RecyclerView.Adapter<MyAdapter.MyViewHolder>()
 {
@@ -26,7 +27,7 @@ class MyAdapter(val context: Context,
 
     override fun getItemCount() = data.size
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, @SuppressLint("RecyclerView") position: Int) {
         holder.apply {
             etat.text = data[position].etat
             titre.text = data[position].nom
@@ -34,7 +35,7 @@ class MyAdapter(val context: Context,
             kilom.text = data[position].distance.toString()+" km"
             time.text = data[position].tempsestime.toString()+" min"
             
-          Glide.with(context).load( "https://images.unsplash.com/photo-1590674899484-d5640e854abe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFya2luZyUyMGxvdHxlbnwwfHwwfHw%3D&w=1000&q=80").into(holder.photo)
+          Glide.with(context).load( data[position].photo).into(holder.photo)
             parkingCard.setOnClickListener {
 
             }
@@ -43,6 +44,7 @@ class MyAdapter(val context: Context,
                     if (view != null) {
                         val bundle = bundleOf(
                             "position" to position,
+                            "search" to search,
                         )
                         view.findNavController()
                             .navigate(R.id.action_parkingListFragment_to_parkingDetailFragment, bundle)
