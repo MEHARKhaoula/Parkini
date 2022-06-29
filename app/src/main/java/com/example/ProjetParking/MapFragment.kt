@@ -34,20 +34,7 @@ class MyMapFragment : SupportMapFragment(), OnMapReadyCallback {
 
 
 
-        /*googleMap!!.addMarker(MarkerOptions().position(parkingJardindessai).title("Mark" +
-                "er in Algeria"))
-        googleMap!!.moveCamera(CameraUpdateFactory.newLatLng(parkingJardindessai))
-        googleMap!!.setOnMapClickListener { latLng ->
-            val markerOptions = MarkerOptions()36
-            markerOptions.position(latLng)
-            markerOptions.title(latLng.latitude.toString() + " : " + latLng.longitude)
-            // Clear previously click position.
-            googleMap!!.clear()
-            // Zoom the Marker
-            googleMap!!.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10f))
-            // Add Marker on Map
-            googleMap!!.addMarker(markerOptions)
-        }*/
+
     }
 
     init {

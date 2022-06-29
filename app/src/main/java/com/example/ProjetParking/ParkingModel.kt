@@ -13,7 +13,7 @@ data class ParkingModel(
     val heurefin:String,
     val longitude: Double,
     val latitude: Double,
-    val nbrplaceslibre:Int,
+    val nbrplaceslibres:Int,
     val nbrplaces: Int,
     val tempsestime: Double
 
