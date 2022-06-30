@@ -1,8 +1,12 @@
 package com.example.projettdm
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 
+@Entity(tableName ="parking" )
 data class ParkingModel(
+    @PrimaryKey()
     val idparking:Int,
     val commune:String,
     val nom :String,

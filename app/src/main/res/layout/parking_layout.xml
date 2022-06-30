@@ -79,7 +79,7 @@
 
 
     <TextView
-        android:id="@+id/textViewlocation"
+        android:id="@+id/textViewdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -97,7 +97,7 @@
         android:drawablePadding="3dp"
         android:text="12,95 Km"
         app:layout_constraintStart_toEndOf="@+id/textViewTime"
-        app:layout_constraintTop_toBottomOf="@+id/textViewlocation" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewdate" />
     <RatingBar
         android:id="@+id/rating"
         android:layout_width="wrap_content"
@@ -118,8 +118,8 @@
         android:layout_marginTop="30dp"
 
         android:text="14 min"
-        app:layout_constraintTop_toBottomOf="@+id/textViewlocation"
-        app:layout_constraintStart_toStartOf="@+id/textViewlocation"
+        app:layout_constraintTop_toBottomOf="@+id/textViewdate"
+        app:layout_constraintStart_toStartOf="@+id/textViewdate"
 
         />
 

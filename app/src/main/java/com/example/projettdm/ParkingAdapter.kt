@@ -61,7 +61,7 @@ class MyAdapter(val context: Context,
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val etat = view.findViewById (R.id.textViewEtat) as TextView
         val titre = view.findViewById(R.id.textViewTitre) as TextView
-        val location = view.findViewById(R.id.textViewlocation) as TextView
+        val location = view.findViewById(R.id.textViewdate) as TextView
         val kilom = view.findViewById(R.id.textViewKilom) as TextView
         val time= view.findViewById(R.id.textViewTime) as TextView
         val parkingCard = view.findViewById(R.id.parkingCard) as ConstraintLayout

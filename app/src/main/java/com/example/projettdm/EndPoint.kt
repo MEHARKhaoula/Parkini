@@ -13,17 +13,32 @@ interface Endpoint {
 
 
     @GET("reservationgetplace/{idparking}")
-    suspend fun getPlaceVide(@Path("idparking") idparking: Int): Response<List<Int>>
+    suspend fun getPlaceVide(@Path("idparking") idparking:Int): Response<List<PlaceModel>>
+
+
+    @GET("parkingplace/{idplace}")
+    suspend fun getPlaceById(@Path("idplace") idplace:Int): Response<List<PlaceModel>>
 
     @POST("setusers")
     suspend fun setUser(@Body user:UserModel): Response<UserModel>
 
     @POST("setreservation")
-    suspend fun setReservation(@Body reservation:ReservationModel): Response<UserModel>
+    suspend fun setReservation(@Body reservation:ReservationModel): Response<ReservationModel>
 
+    @GET("getreservations")
+    suspend fun getReservations(): Response<List<ReservationModel>>
+
+    @GET("getaddesreservation")
+    suspend fun getAddedReservation(): Response<List<ReservationModel>>
 
     @GET("getparkings")
     suspend fun getParkings(): Response<List<ParkingModel>>
+
+    @GET("getplaces")
+    suspend fun getPlaces(): Response<List<PlaceModel>>
+
+    @GET("users")
+    suspend fun getUsers(): Response<List<UserModel>>
 
 
     @GET("login/{email}/{mot_de_passe}")
@@ -37,7 +52,7 @@ interface Endpoint {
                 val gson =  GsonBuilder()
                     .setDateFormat("dd-MM-YYYY")
                     .create()
-                endpoint = Retrofit.Builder().baseUrl("https://04ae-105-98-159-239.eu.ngrok.io").addConverterFactory(
+                endpoint = Retrofit.Builder().baseUrl("https://f4cc-105-102-189-85.eu.ngrok.io").addConverterFactory(
                     GsonConverterFactory.create(gson)).build().create(
                     Endpoint::class.java)
             }

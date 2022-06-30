@@ -19,7 +19,7 @@ class ParkingListFragment : Fragment() {
 
     lateinit var navController: NavController
     lateinit var parkingViewModel: ParkingViewModel
-   lateinit var recyclerView: RecyclerView
+    lateinit var recyclerView: RecyclerView
 
 
 
@@ -40,8 +40,8 @@ class ParkingListFragment : Fragment() {
         navController = Navigation.findNavController(view)
         parkingViewModel = ViewModelProvider(requireActivity()).get(ParkingViewModel::class.java)
 
-        recyclerView=  view.findViewById<RecyclerView>(R.id.recyclerView)
-       recyclerView.layoutManager  = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+        recyclerView =  view.findViewById<RecyclerView>(R.id.recyclerViewreservation)
+        recyclerView.layoutManager  = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
 
         if(parkingViewModel.data.size <= 0)
         {
@@ -82,11 +82,12 @@ class ParkingListFragment : Fragment() {
                 {
 
 
-
                 }
             }
         }
     }
+
     }
+
 
 

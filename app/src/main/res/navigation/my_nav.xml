@@ -18,7 +18,14 @@
         android:id="@+id/parkingDetailFragment"
         android:name="com.example.projettdm.ParkingDetailFragment"
         android:label="fragment_parking_detail"
-        tools:layout="@layout/fragment_parking_detail" />
+        tools:layout="@layout/fragment_parking_detail" >
+        <action
+            android:id="@+id/action_parkingDetailFragment_to_reservatindetailsFragment"
+            app:destination="@id/reservatindetailsFragment" />
+        <action
+            android:id="@+id/action_parkingDetailFragment_to_paymentFragment2"
+            app:destination="@id/paymentFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.projettdm.LoginFragment"
@@ -34,7 +41,11 @@
         android:id="@+id/reservationFragment"
         android:name="com.example.projettdm.ReservationFragment"
         android:label="fragment_reservation"
-        tools:layout="@layout/fragment_reservation" />
+        tools:layout="@layout/fragment_reservation" >
+        <action
+            android:id="@+id/action_reservationFragment_to_reservationListDetailFragment"
+            app:destination="@id/reservationListDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_inscription"
         android:name="com.example.projettdm.fragment_inscription"
@@ -44,6 +55,24 @@
             android:id="@+id/action_fragment_inscription_to_loginFragment2"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/reservatindetailsFragment"
+        android:name="com.example.projettdm.ReservatindetailsFragment"
+        android:label="fragment_reservatindetails"
+        tools:layout="@layout/fragment_reservatindetails" />
+    <fragment
+        android:id="@+id/paymentFragment2"
+        android:name="com.example.projettdm.PaymentFragment"
+        android:label="PaymentFragment" >
+        <action
+            android:id="@+id/action_paymentFragment2_to_reservatindetailsFragment"
+            app:destination="@id/reservatindetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reservationListDetailFragment"
+        android:name="com.example.projettdm.ReservationListDetailFragment"
+        android:label="fragment_reservation_list_detail"
+        tools:layout="@layout/fragment_reservation_list_detail" />
 
 
 </navigation>
