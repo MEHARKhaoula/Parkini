@@ -13,10 +13,11 @@
     android:paddingStart="4dp"
     android:padding="10dp"
     android:layout_margin="5dp"
-    android:elevation="2dp"
-    android:background="@drawable/bg_constraintlayout">
+    android:elevation="0dp"
+    android:background="@drawable/greypurple_circular_border"
+    >
 
-
+<!--android:background="@drawable/greypurple_circular_border"-->
 
 
 
@@ -49,6 +50,7 @@
         android:layout_marginStart="20dp"
         android:text="Ferme"
         android:textColor="#F00"
+        android:background="@drawable/grey_circular_border"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,8 +59,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-
+        android:textColor="#4A9B4D"
         android:text="65%"
+        android:background="@drawable/bg_taux"
         app:layout_constraintStart_toEndOf="@+id/textViewEtat"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -92,10 +95,11 @@
         android:id="@+id/textViewKilom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
         android:drawablePadding="3dp"
         android:text="12,95 Km"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textViewTime"
         app:layout_constraintTop_toBottomOf="@+id/textViewlocation" />
     <RatingBar
@@ -110,6 +114,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewKilom"
         android:theme="@style/RatingBar"/>
+
     <TextView
         android:id="@+id/textViewTime"
         android:layout_width="wrap_content"
@@ -118,10 +123,10 @@
         android:layout_marginTop="30dp"
 
         android:text="14 min"
-        app:layout_constraintTop_toBottomOf="@+id/textViewlocation"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textViewlocation"
 
-        />
+        app:layout_constraintTop_toBottomOf="@+id/textViewlocation" />
 
 
 

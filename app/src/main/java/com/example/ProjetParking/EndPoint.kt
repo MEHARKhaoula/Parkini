@@ -37,7 +37,7 @@ interface Endpoint {
                 val gson =  GsonBuilder()
                     .setDateFormat("dd-MM-YYYY")
                     .create()
-                endpoint = Retrofit.Builder().baseUrl("https://94b0-129-45-25-201.eu.ngrok.io").addConverterFactory(
+                endpoint = Retrofit.Builder().baseUrl("https://e6cb-129-45-38-44.eu.ngrok.io").addConverterFactory(
                     GsonConverterFactory.create(gson)).build().create(
                     Endpoint::class.java)
             }
