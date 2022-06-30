@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loginuidesign.AppDatabase
 import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.Channel.Factory.UNLIMITED
+import java.nio.channels.Channel
 
 
 class ReservationFragment : Fragment() {
@@ -57,32 +59,37 @@ class ReservationFragment : Fragment() {
         val app = AppDatabase.buildDatabase(requireContext())
 
 
-        for(res in parkings){
+            getReservations()
+            getParkings()
+            getPlaces()
+            getUsers()
 
-            app?.getParkingDo()?.addParkings(res)
+        GlobalScope.launch {
+            suspend@ for (res in parkings) {
+
+                app?.getParkingDo()?.addParkings(res)
+
+            }
+
+            suspend@ for (res in users) {
+
+                app?.getUserDo()?.addUsers(res)
+
+            }
+
+            suspend@ for (res in places) {
+
+                app?.getPlacegDo()?.addPlaces(res)
+
+            }
+
+            suspend@ for (res in reservations) {
+
+                app?.getReservationDo()?.addReservation(res)
+
+            }
 
         }
-
-        for(res in users){
-
-            app?.getUserDo()?.addUsers(res)
-
-        }
-
-        for(res in places){
-
-            app?.getPlacegDo()?.addPlaces(res)
-
-        }
-
-        for(res in reservations){
-
-            app?.getReservationDo()?.addReservation(res)
-
-        }
-
-
-
 
 
 
@@ -90,7 +97,7 @@ class ReservationFragment : Fragment() {
         if (reservationListViewModel.data.size <= 0) {
 
 
-            reservationListViewModel.data=reservations
+            reservationListViewModel.data = reservations
 
 
         } else {
@@ -105,7 +112,7 @@ class ReservationFragment : Fragment() {
         val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
             requireActivity().runOnUiThread {
 
-                Toast.makeText(requireActivity(), "Une erreur s'est produite", Toast.LENGTH_SHORT)
+                Toast.makeText(requireActivity(), "Une erreur 1 s'est produite", Toast.LENGTH_SHORT)
                     .show()
             }
         }
@@ -122,9 +129,11 @@ class ReservationFragment : Fragment() {
                     //app?.getReservationDo()?.addReservation(reservation)
                     //}
                     //app?.getReservationDo()?.addReservation(reservation2)
+
                     reservations = response.body()!!.toMutableList()
-                    recyclerView.adapter =
-                        ReservationAdapter(requireActivity(), reservationListViewModel.data)
+                    recyclerView.adapter = ReservationAdapter(requireActivity(), reservationListViewModel.data)
+
+
 
                 } else {
 
@@ -140,7 +149,7 @@ class ReservationFragment : Fragment() {
         val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
             requireActivity().runOnUiThread {
 
-                Toast.makeText(requireActivity(), "Une erreur s'est produite", Toast.LENGTH_SHORT)
+                Toast.makeText(requireActivity(), "Une erreur2 s'est produite", Toast.LENGTH_SHORT)
                     .show()
             }
         }
@@ -170,7 +179,7 @@ class ReservationFragment : Fragment() {
         val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
             requireActivity().runOnUiThread {
 
-                Toast.makeText(requireActivity(), "Une erreur s'est produite", Toast.LENGTH_SHORT)
+                Toast.makeText(requireActivity(), "Une erreur 3 s'est produite", Toast.LENGTH_SHORT)
                     .show()
             }
         }
@@ -205,7 +214,7 @@ class ReservationFragment : Fragment() {
         val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
             requireActivity().runOnUiThread {
 
-                Toast.makeText(requireActivity(), "Une erreur s'est produite", Toast.LENGTH_SHORT)
+                Toast.makeText(requireActivity(), "Une erreur 4 s'est produite", Toast.LENGTH_SHORT)
                     .show()
             }
         }
