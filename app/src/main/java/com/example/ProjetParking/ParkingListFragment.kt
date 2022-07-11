@@ -57,19 +57,19 @@ class ParkingListFragment : Fragment() {
             recyclerView.adapter = MyAdapter(requireActivity(), parkingViewModel.data,false)
         }
 
-        val   p1 = getLocationFromAddress("Lycée Ahmed Zabana Caroubier")
+
 
 
 
         searchView.setOnQueryTextListener(object  : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-                if(query != null){
-                    val p =   getLocationFromAddress(query)
+             /*   if(query != null){
+                  val p =   getLocationFromAddress(query)
                     if (p != null) {
                         search(p)
                     }
 
-                }
+                }*/
 
                 return true
             }
@@ -125,13 +125,13 @@ class ParkingListFragment : Fragment() {
 
 
 
-    fun getLocationFromAddress(strAddress: String?): LatLng? {
+   /* fun getLocationFromAddress(strAddress: String?): LatLng? {
         val coder = Geocoder(this.activity)
         val address: List<Address>?
         var p1: LatLng? = null
         try {
-            address = coder.getFromLocationName(strAddress, 5)
-            if (address == null) {
+           address = coder.getFromLocationName(strAddress, 5)
+           if (address == null) {
                 return null
             }
             val location: Address = address[0]
@@ -147,7 +147,7 @@ class ParkingListFragment : Fragment() {
             e.printStackTrace()
         }
         return null
-    }
+    }  */
 
 
     fun search(p:LatLng)

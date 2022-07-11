@@ -48,6 +48,10 @@
         android:id="@+id/myMapFragment"
         android:name="com.example.ProjetParking.MyMapFragment"
         android:label="MyMapFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.ProjetParking.ProfileFragment"
+        android:label="ProfileFragment" />
 
 
 </navigation>
