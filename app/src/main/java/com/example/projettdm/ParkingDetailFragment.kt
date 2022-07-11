@@ -1,17 +1,22 @@
 package com.example.projettdm
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.bumptech.glide.Glide
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -31,7 +36,11 @@ class ParkingDetailFragment : Fragment() {
     lateinit var reservationViewModel:ReservationViewModel
     lateinit var placeViewModel:PlaceViewModel
     var reservationAdded = mutableListOf<ReservationModel>()
+    lateinit  var positionbutton :ImageView
+    lateinit  var Img :ImageView
 
+    var latitude:Double= 0.0
+     var longitude:Double=0.0
 
 
 
@@ -55,29 +64,37 @@ class ParkingDetailFragment : Fragment() {
         userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
         reserver = view.findViewById(R.id.payer) as Button
         navController = Navigation.findNavController(view)
-        reservationViewModel = ViewModelProvider(requireActivity()).get(ReservationViewModel::class.java)
+        reservationViewModel =
+            ViewModelProvider(requireActivity()).get(ReservationViewModel::class.java)
         placeViewModel = ViewModelProvider(requireActivity()).get(PlaceViewModel::class.java)
+        positionbutton = view.findViewById(R.id.position) as ImageView
+        Img = view.findViewById(R.id.idimage) as ImageView
 
 
-
-
-        position= arguments?.getInt("position")!!
+        position = arguments?.getInt("position")!!
 
 
 
 
         parkingViewModel = ViewModelProvider(requireActivity()).get(ParkingViewModel::class.java)
-        val parking= position?.let { parkingViewModel.data.get(it) }
+        val parking = position?.let { parkingViewModel.data.get(it) }
         if (parking != null) {
             view.findViewById<TextView>(R.id.textViewTitre).text = parking.nom
-            view.findViewById<TextView>(R.id.textViewKilom).text = parking.distance.toString()
+            view.findViewById<TextView>(R.id.textViewKilom).text =
+                parking.distance.toString() + "Km"
             view.findViewById<TextView>(R.id.textViewEtat).text = parking.etat
-            view.findViewById<TextView>(R.id.TextViewTaux).text = (parking.nbrplaceslibre/parking.nbrplaces).toString()
-            view.findViewById<TextView>(R.id.textViewTime).text = parking.heuredebut+""+"a"+""+parking.heurefin
+            view.findViewById<TextView>(R.id.TextViewTaux).text =
+                "-" + (parking.nbrplaceslibre / parking.nbrplaces).toString() + "%"
+            view.findViewById<TextView>(R.id.textViewTime).text = parking.tempsestime.toString()
             view.findViewById<TextView>(R.id.textViewdate).text = parking.commune
-            view.findViewById<TextView>(R.id.numeroreservation).text =""
-            view.findViewById<TextView>(R.id.TextViewHeure).text = parking.tempsestime.toString()
-            view.findViewById<TextView>(R.id.TextViewPrix).text = ""
+            view.findViewById<TextView>(R.id.numeroreservation).text = "Dimanche"
+            view.findViewById<TextView>(R.id.TextViewHeure).text =
+                parking.heuredebut.format("HH:MM") + "" + "a" + "" + parking.heurefin.format("HH:MM")
+            view.findViewById<TextView>(R.id.TextViewPrix).text = parking.tarif.toString() + "DA"
+            latitude = parking.latitude
+            longitude = parking.longitude
+
+            Glide.with(requireContext()).load( "https://images.unsplash.com/photo-1590674899484-d5640e854abe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFya2luZyUyMGxvdHxlbnwwfHwwfHw%3D&w=1000&q=80").into(Img)
 
 
 
@@ -92,23 +109,43 @@ class ParkingDetailFragment : Fragment() {
 
 
 
-        reserver.setOnClickListener{
+        positionbutton.setOnClickListener {
+
+            val lati = latitude
+            val longi = longitude
+            val geoLocation =
+                Uri.parse("http://maps.google.com/maps?daddr=" + lati + "," + longi)
+            val intent = Intent(Intent.ACTION_VIEW, geoLocation)
+            requireActivity().startActivity(intent)
+
+
+        }
+
+        reserver.setOnClickListener {
 
 
             val pref = this.getActivity()?.getSharedPreferences("data", Context.MODE_PRIVATE)
             val userConnected = pref?.getBoolean("Connected", false)
             if (userConnected == true) {
+                val bundle = bundleOf(
+                    "id" to parkingViewModel.data.get(position).idparking,
+                )
+                navController.navigate(
+                    R.id.action_parkingDetailFragment_to_paymentFragment2,
+                    bundle
+                )
 
-                navController.navigate(R.id.action_parkingDetailFragment_to_paymentFragment2)
 
+            } else {
 
-            }else{
-
-                Toast.makeText(requireActivity(),"You should login to accomplish this action",Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    requireActivity(),
+                    "You should login to accomplish this action",
+                    Toast.LENGTH_LONG
+                ).show()
 
 
             }
-
 
 
         }

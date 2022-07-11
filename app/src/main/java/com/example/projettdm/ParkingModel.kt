@@ -19,7 +19,8 @@ data class ParkingModel(
     val latitude: Double,
     val nbrplaceslibre:Int,
     val nbrplaces: Int,
-    val tempsestime: Double
+    val tempsestime: Double,
+    val tarif:Double
 
 
 )

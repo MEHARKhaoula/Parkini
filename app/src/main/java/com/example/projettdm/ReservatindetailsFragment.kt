@@ -68,8 +68,7 @@ class ReservatindetailsFragment : Fragment() {
 
           parkingPlace.text = placeViewModel.data.get(0).numero_place.toString()
           numeroreservation.text = "Réservation numéro "+ reservationViewModel.data.get(0).numeroreservation+1.toString()
-        Toast.makeText(requireActivity(), reservationViewModel.data.toString(), Toast.LENGTH_SHORT)
-            .show()
+
 
         val encoder = QRGEncoder(reservationViewModel.data.get(0).numeroreservation.toString(), null , QRGContents.Type.TEXT, 800  )
 
