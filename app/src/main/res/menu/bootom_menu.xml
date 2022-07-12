@@ -2,7 +2,7 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/parkingListFragment"
+        android:id="@+id/myMapFragment"
         android:enabled="true"
         android:icon="@drawable/ic_home"
         tools:ignore="MenuTitle"
@@ -12,14 +12,14 @@
 
 
     <item
-        android:id="@+id/loginFragment"
+        android:id="@+id/parkingListFragment"
         android:enabled="true"
         android:icon="@drawable/ic_list"
         tools:ignore="MenuTitle"
         android:visible="true" />
 
     <item
-        android:id="@+id/profileFragment"
+
         android:enabled="true"
         android:icon="@drawable/ic_calendar_clock"
 
@@ -28,7 +28,7 @@
 
 
     <item
-
+        android:id="@+id/profileFragment"
         android:enabled="true"
         android:icon="@drawable/ic_user_icon"
 

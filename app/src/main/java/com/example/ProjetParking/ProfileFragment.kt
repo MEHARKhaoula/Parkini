@@ -16,7 +16,7 @@ import com.example.ProjetParking.*
 
 
 class ProfileFragment : Fragment() {
-lateinit var relativeLayout: RelativeLayout
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
