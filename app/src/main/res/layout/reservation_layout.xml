@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:id="@+id/reservationCard"
+    android:paddingStart="4dp"
+    android:padding="10dp"
+    android:layout_margin="5dp"
+
+    >
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="5dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
+
+        app:shapeAppearanceOverlay="@style/roundedimageview"
+        />
+
+
+
+
+    <TextView
+        android:id="@+id/textViewTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:text="Parking jardin d'essai"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textViewdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="48dp"
+        android:text="Hussein dey . Alger"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewTitre"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/heurefin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="88dp"
+        android:text="Hussein dey . Alger"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textViewTitre"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/heuredebut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="88dp"
+        android:text="Hussein dey . Alger"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/heurefin"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewTitre"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="15dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="-110dp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewdate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/calendrier" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="15dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="-110dp"
+        app:layout_constraintEnd_toStartOf="@+id/heuredebut"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/montre" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="15dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/heurefin"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/montre" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

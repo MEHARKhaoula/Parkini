@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/PROJET_TDM/Projet_tdm/app/src/main/res/layout/fragment_map.xml" value="0.1828125" />
         <entry key="..\:/PROJET_TDM/Projet_tdm/app/src/main/res/menu/bootom_menu.xml" value="0.1" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable-hdpi/grey_border.xml" value="0.187" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/background_btn.xml" value="0.1" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/bg_circle.xml" value="0.1" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/bg_constraintlayout.xml" value="0.1" />
@@ -42,7 +43,9 @@
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_parking_detail.xml" value="0.2" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_payment.xml" value="0.18125" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_reservation.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/parking_layout.xml" value="0.264" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/reservation_layout.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/menu/bootom_menu.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/LENOVO/Desktop/Main/Projet_tdm/app/src/main/res/drawable/bg_taux.xml" value="0.1" />
         <entry key="..\:/Users/LENOVO/Desktop/Main/Projet_tdm/app/src/main/res/drawable/grey_circular_border.xml" value="0.1" />
