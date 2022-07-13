@@ -12,18 +12,34 @@ import retrofit2.http.Path
 interface Endpoint {
 
 
-    @GET("reservationgetplace/{idparking}")
-    suspend fun getPlaceVide(@Path("idparking") idparking: Int): Response<List<Int>>
+    suspend fun getPlaceVide(@Path("idparking") idparking:Int): Response<List<PlaceModel>>
+
+
+    @GET("parkingplace/{idplace}")
+    suspend fun getPlaceById(@Path("idplace") idplace:Int): Response<List<PlaceModel>>
 
     @POST("setusers")
     suspend fun setUser(@Body user:UserModel): Response<UserModel>
 
     @POST("setreservation")
-    suspend fun setReservation(@Body reservation:ReservationModel): Response<UserModel>
+    suspend fun setReservation(@Body reservation:ReservationModel): Response<ReservationModel>
+
+    @GET("getreservations")
+    suspend fun getReservations(): Response<List<ReservationModel>>
 
 
     @GET("getparkings")
     suspend fun getParkings(): Response<List<ParkingModel>>
+
+    @GET("getaddesreservation")
+    suspend fun getAddedReservation(): Response<List<ReservationModel>>
+
+
+    @GET("getplaces")
+    suspend fun getPlaces(): Response<List<PlaceModel>>
+
+    @GET("users")
+    suspend fun getUsers(): Response<List<UserModel>>
 
 
     @GET("login/{email}/{mot_de_passe}")

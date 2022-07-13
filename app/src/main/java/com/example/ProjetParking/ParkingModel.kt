@@ -1,8 +1,11 @@
 package com.example.ProjetParking
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-
+@Entity(tableName ="parking" )
 data class ParkingModel(
+    @PrimaryKey()
     val idparking:Int,
     val commune:String,
     val nom :String,
@@ -15,7 +18,9 @@ data class ParkingModel(
     val latitude: Double,
     val nbrplaceslibres:Int,
     val nbrplaces: Int,
-    val tempsestime: Double
+    val tempsestime: Double,
+    val tarif:Double
+
 
 
 )

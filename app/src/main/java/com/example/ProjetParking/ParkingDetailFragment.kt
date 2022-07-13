@@ -167,33 +167,7 @@ class ParkingDetailFragment : Fragment() {
 
     }
 
-    fun getPlaceVide(){
-        val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
-            requireActivity().runOnUiThread {
 
-                Toast.makeText(requireActivity(), "Une erreur s'est produite", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        }
-
-        CoroutineScope(Dispatchers.IO+exceptionHandler).launch {
-            val response = Endpoint.createEndpoint().getPlaceVide(parkingViewModel.data.get(position).idparking)
-            withContext(Dispatchers.Main) {
-
-
-                if (response.isSuccessful && response.body() != null)  {
-
-                    placeVide = response.body()!!.toMutableList()
-
-                } else
-                {
-
-
-
-                }
-            }
-        }
-    }
 
     fun setReservation(res: ReservationModel) {
         val exceptionHandler = CoroutineExceptionHandler{ coroutineContext, throwable ->

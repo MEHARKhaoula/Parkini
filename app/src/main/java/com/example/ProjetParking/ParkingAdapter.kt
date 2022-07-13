@@ -78,7 +78,6 @@ class MyAdapter(val context: Context,
         val time= view.findViewById(R.id.textViewTime) as TextView
         val parkingCard = view.findViewById(R.id.parkingCard) as ConstraintLayout
         val photo =view.findViewById<View>(R.id.imageView) as ImageView
-        val ratingBar=view.findViewById<RatingBar>(R.id.rating) as RatingBar
         val taux= view.findViewById(R.id.textViewTaux) as TextView
 
     }
