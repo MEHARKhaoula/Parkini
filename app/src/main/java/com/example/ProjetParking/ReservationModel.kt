@@ -1,9 +1,8 @@
-package com.example.projettdm
+package com.example.ProjetParking
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import java.text.SimpleDateFormat
 
 @Entity(tableName ="reservation", foreignKeys = [ForeignKey(entity=UserModel::class,
     parentColumns=["iduser"] ,childColumns = ["iduser"],

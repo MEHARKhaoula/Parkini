@@ -1,8 +1,7 @@
-package com.example.projettdm
+package com.example.ProjetParking
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
 
 
 @Entity(tableName ="users" )

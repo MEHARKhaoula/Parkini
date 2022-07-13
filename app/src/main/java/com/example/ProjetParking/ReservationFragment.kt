@@ -1,4 +1,4 @@
-package com.example.projettdm
+package com.example.ProjetParking
 
 import android.os.Build
 import android.os.Bundle
@@ -15,8 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loginuidesign.AppDatabase
 import kotlinx.coroutines.*
-import kotlinx.coroutines.channels.Channel.Factory.UNLIMITED
-import java.nio.channels.Channel
 
 
 class ReservationFragment : Fragment() {

@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.projettdm.*
+import com.example.ProjetParking.*
 
 
 @Database(entities = [UserModel::class, ReservationModel::class,PlaceModel::class,ParkingModel::class],version = 2)

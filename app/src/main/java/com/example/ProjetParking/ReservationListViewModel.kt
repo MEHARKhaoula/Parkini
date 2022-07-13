@@ -1,7 +1,7 @@
-package com.example.projettdm
+package com.example.ProjetParking
 
 import androidx.lifecycle.ViewModel
 
-class ReservationViewModel : ViewModel(){
+class ReservationListViewModel : ViewModel(){
     var data = mutableListOf<ReservationModel>()
 }

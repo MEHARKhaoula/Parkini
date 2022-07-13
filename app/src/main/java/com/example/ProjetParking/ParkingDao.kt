@@ -1,7 +1,6 @@
-package com.example.projettdm
+package com.example.ProjetParking
 
 import androidx.room.*
-import com.example.projettdm.UserModel
 
 @Dao
 interface ParkingDao {

@@ -1,8 +1,6 @@
-package com.example.projettdm
+package com.example.ProjetParking
 
 import androidx.room.TypeConverter
-import java.sql.Time
-import java.time.LocalTime
 import java.util.*
 
 class Converter {
