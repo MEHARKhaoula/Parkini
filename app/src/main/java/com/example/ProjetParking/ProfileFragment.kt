@@ -37,26 +37,26 @@ class ProfileFragment : Fragment() {
 
        // set the params for relativelayout
         val layout: RelativeLayout = view.findViewById(R.id.relativelayout)
-        layout.getLayoutParams().height = ((120/375.0)*width).toInt()
-        layout.getLayoutParams().width = ((120/375.0)*width).toInt()
+        layout.getLayoutParams().height = ((140/375.0)*width).toInt()
+        layout.getLayoutParams().width = ((140/375.0)*width).toInt()
 
 
         // set the params for linearlayout01
         val layout01: LinearLayout = view.findViewById(R.id.linearlayout01)
-        layout01.getLayoutParams().height = ((120/375.0)*width).toInt()
+        layout01.getLayoutParams().height = ((140/375.0)*width).toInt()
         layout01.getLayoutParams().width = ((120/375.0)*width).toInt()
 
 
         // set the params for relativelayout
         val layout2: LinearLayout = view.findViewById(R.id.linearlayout0)
-        layout.getLayoutParams().height = ((120/375.0)*width).toInt()
+        layout2.getLayoutParams().height = ((140/375.0)*width).toInt()
 
 
 
         //set the params for the imageview
         val imageView: ImageView = view.findViewById(R.id.imageView)
-        imageView.getLayoutParams().width = ((120/375.0)*width).toInt()
-
+        imageView.getLayoutParams().width = ((140/375.0)*width).toInt()
+        imageView.getLayoutParams().height = ((140/375.0)*width).toInt()
 
         //set the params for the linearlayout1
         val linearlayout: LinearLayout = view.findViewById(R.id.linearlayout1)
@@ -66,7 +66,7 @@ class ProfileFragment : Fragment() {
         //set the params for the user name
         val userName :TextView = view.findViewById(R.id.username)
         val params = userName.layoutParams as ViewGroup.MarginLayoutParams
-        params.setMargins(((100/375.0)*width).toInt(),0,0,((20/375.0)*width).toInt(),)
+        params.setMargins(((100/375.0)*width).toInt(),((20/375.0)*width).toInt(),0,((20/375.0)*width).toInt(),)
         userName.layoutParams = params
 
 
