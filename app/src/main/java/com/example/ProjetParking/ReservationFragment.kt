@@ -57,45 +57,13 @@ class ReservationFragment : Fragment() {
         val app = AppDatabase.buildDatabase(requireContext())
 
 
-            getReservations()
-            getParkings()
-            getPlaces()
-            getUsers()
-
-        GlobalScope.launch {
-            suspend@ for (res in parkings) {
-
-                app?.getParkingDo()?.addParkings(res)
-
-            }
-
-            suspend@ for (res in users) {
-
-                app?.getUserDo()?.addUsers(res)
-
-            }
-
-            suspend@ for (res in places) {
-
-                app?.getPlacegDo()?.addPlaces(res)
-
-            }
-
-            suspend@ for (res in reservations) {
-
-                app?.getReservationDo()?.addReservation(res)
-
-            }
-
-        }
-
 
 
 
         if (reservationListViewModel.data.size <= 0) {
 
 
-            reservationListViewModel.data = reservations
+            getReservations()
 
 
         } else {
@@ -110,7 +78,7 @@ class ReservationFragment : Fragment() {
         val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
             requireActivity().runOnUiThread {
 
-                Toast.makeText(requireActivity(), "Une erreur 1 s'est produite", Toast.LENGTH_SHORT)
+                Toast.makeText(requireActivity(), "Une erreur s'est produite", Toast.LENGTH_SHORT)
                     .show()
             }
         }
@@ -127,40 +95,9 @@ class ReservationFragment : Fragment() {
                     //app?.getReservationDo()?.addReservation(reservation)
                     //}
                     //app?.getReservationDo()?.addReservation(reservation2)
-
-                    reservations = response.body()!!.toMutableList()
-                    recyclerView.adapter = ReservationAdapter(requireActivity(), reservationListViewModel.data)
-
-
-
-                } else {
-
-
-                }
-
-
-            }
-        }
-    }
-
-    fun getParkings() {
-        val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
-            requireActivity().runOnUiThread {
-
-                Toast.makeText(requireActivity(), "Une erreur2 s'est produite", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        }
-
-        CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
-            val response = Endpoint.createEndpoint().getParkings()
-            withContext(Dispatchers.Main) {
-
-
-                if (response.isSuccessful && response.body() != null) {
-
-
-                    parkings = response.body()!!.toMutableList()
+                    reservationListViewModel.data = response.body()!!.toMutableList()
+                    recyclerView.adapter =
+                        ReservationAdapter(requireActivity(), reservationListViewModel.data)
 
                 } else {
 
@@ -173,75 +110,5 @@ class ReservationFragment : Fragment() {
     }
 
 
-    fun getPlaces() {
-        val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
-            requireActivity().runOnUiThread {
-
-                Toast.makeText(requireActivity(), "Une erreur 3 s'est produite", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        }
-
-        CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
-            val response = Endpoint.createEndpoint().getPlaces()
-            withContext(Dispatchers.Main) {
-
-
-                if (response.isSuccessful && response.body() != null) {
-
-
-                    //for (reservation in response.body()!!.toMutableList()){
-                    //app?.getReservationDo()?.addReservation(reservation)
-                    //}
-                    //app?.getReservationDo()?.addReservation(reservation2)
-                    places = response.body()!!.toMutableList()
-
-                } else {
-
-
-                }
-
-
-            }
-        }
-
-
-    }
-
-    fun getUsers(){
-        val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
-            requireActivity().runOnUiThread {
-
-                Toast.makeText(requireActivity(), "Une erreur 4 s'est produite", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        }
-
-        CoroutineScope(Dispatchers.IO+exceptionHandler).launch {
-            val response = Endpoint.createEndpoint().getUsers()
-            withContext(Dispatchers.Main) {
-
-
-                if (response.isSuccessful && response.body() != null)  {
-
-
-                    //for (reservation in response.body()!!.toMutableList()){
-                    //app?.getReservationDo()?.addReservation(reservation)
-                    //}
-                    //app?.getReservationDo()?.addReservation(reservation2)
-                    users = response.body()!!.toMutableList()
-
-                } else
-                {
-
-
-                }
-
-
-            }
-        }
-
-
-    }
 
 }
