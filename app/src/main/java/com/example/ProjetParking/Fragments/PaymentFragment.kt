@@ -1,28 +1,31 @@
-package com.example.ProjetParking
+package com.example.ProjetParking.Fragments
 
 import android.app.DatePickerDialog
-import android.content.Context
 import android.os.Bundle
 
-import android.os.Looper
 import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidmads.library.qrgenearator.QRGContents
-import androidmads.library.qrgenearator.QRGEncoder
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.example.ProjetParking.Endpoint
+import com.example.ProjetParking.Models.PlaceModel
+import com.example.ProjetParking.Models.ReservationModel
+import com.example.ProjetParking.ParkingViewModel
+import com.example.ProjetParking.R
+import com.example.ProjetParking.ViewModels.PlaceViewModel
+import com.example.ProjetParking.ViewModels.ReservationViewModel
+import com.example.ProjetParking.ViewModels.UserViewModel
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
-import com.google.gson.stream.JsonReader
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
-import com.google.gson.stream.*;
+
 class PaymentFragment : Fragment() {
 
 
@@ -32,7 +35,7 @@ class PaymentFragment : Fragment() {
     lateinit var payer: Button
     lateinit var navController: NavController
     lateinit var reserver: Button
-    lateinit var parkingViewModel :ParkingViewModel
+    lateinit var parkingViewModel : ParkingViewModel
     lateinit var heuredeb :String
     lateinit var heuref : String
     lateinit var userViewModel: UserViewModel
@@ -40,8 +43,8 @@ class PaymentFragment : Fragment() {
     lateinit var  myCalendar:Calendar
     var  position: Int = 0
     var placeVide = mutableListOf<PlaceModel>()
-    lateinit var reservationViewModel:ReservationViewModel
-    lateinit var placeViewModel:PlaceViewModel
+    lateinit var reservationViewModel: ReservationViewModel
+    lateinit var placeViewModel: PlaceViewModel
     var reservationAdded = mutableListOf<ReservationModel>()
 
 

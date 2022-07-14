@@ -1,21 +1,20 @@
-package com.example.ProjetParking
+package com.example.ProjetParking.Fragments
 
-import android.location.Address
-import android.location.Geocoder
 import android.os.Bundle
 import android.view.*
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ProjetParking.Endpoint
+import com.example.ProjetParking.MyAdapter
+import com.example.ProjetParking.ParkingViewModel
+import com.example.ProjetParking.R
 import com.google.android.gms.maps.model.LatLng
-import com.google.firebase.firestore.GeoPoint
 import kotlinx.coroutines.*
-import java.io.IOException
 
 
 class ParkingListFragment : Fragment() {

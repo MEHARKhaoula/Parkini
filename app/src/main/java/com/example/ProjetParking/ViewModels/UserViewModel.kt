@@ -1,7 +1,8 @@
-package com.example.ProjetParking
+package com.example.ProjetParking.ViewModels
 
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
+import com.example.ProjetParking.Endpoint
+import com.example.ProjetParking.Models.UserModel
 import kotlinx.coroutines.*
 
 class UserViewModel : ViewModel(){

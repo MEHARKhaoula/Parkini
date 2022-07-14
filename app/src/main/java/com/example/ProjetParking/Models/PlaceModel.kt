@@ -1,10 +1,10 @@
-package com.example.ProjetParking
+package com.example.ProjetParking.Models
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName ="place", foreignKeys = [ForeignKey(entity=ParkingModel::class,
+@Entity(tableName ="place", foreignKeys = [ForeignKey(entity= ParkingModel::class,
     parentColumns=["idparking"] ,childColumns = ["idparking"],
     onUpdate = ForeignKey.CASCADE,
     onDelete = ForeignKey.CASCADE ), ])

@@ -1,13 +1,8 @@
 package com.example.ProjetParking
 
-import android.location.Address
-import android.location.Geocoder
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.android.gms.maps.model.LatLng
+import com.example.ProjetParking.Models.ParkingModel
 import kotlinx.coroutines.*
-import java.io.IOException
 
 class ParkingViewModel: ViewModel() {
     var data = mutableListOf<ParkingModel>()

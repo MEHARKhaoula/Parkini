@@ -1,9 +1,10 @@
-package com.example.ProjetParking
+package com.example.ProjetParking.Dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-
+import com.example.ProjetParking.Models.ParkingModel
+import com.example.ProjetParking.Models.ReservationModel
 
 
 @Dao

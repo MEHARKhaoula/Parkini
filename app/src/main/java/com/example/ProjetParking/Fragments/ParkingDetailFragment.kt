@@ -1,4 +1,4 @@
-package com.example.ProjetParking
+package com.example.ProjetParking.Fragments
 
 import android.content.Context
 import android.content.Intent
@@ -17,7 +17,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
-import kotlinx.coroutines.*
+import com.example.ProjetParking.Models.PlaceModel
+import com.example.ProjetParking.Models.ReservationModel
+import com.example.ProjetParking.ParkingViewModel
+import com.example.ProjetParking.R
+import com.example.ProjetParking.ViewModels.PlaceViewModel
+import com.example.ProjetParking.ViewModels.ReservationViewModel
+import com.example.ProjetParking.ViewModels.UserViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -25,7 +31,7 @@ import java.util.*
 class ParkingDetailFragment : Fragment() {
     lateinit var reserver: Button
     lateinit var navController: NavController
-    lateinit var parkingViewModel :ParkingViewModel
+    lateinit var parkingViewModel : ParkingViewModel
     lateinit var heuredebut :String
     lateinit var heurefin : String
     lateinit var userViewModel: UserViewModel
@@ -33,8 +39,8 @@ class ParkingDetailFragment : Fragment() {
     lateinit var  myCalendar:Calendar
     var  position: Int = 0
     var placeVide = mutableListOf<PlaceModel>()
-    lateinit var reservationViewModel:ReservationViewModel
-    lateinit var placeViewModel:PlaceViewModel
+    lateinit var reservationViewModel: ReservationViewModel
+    lateinit var placeViewModel: PlaceViewModel
     var reservationAdded = mutableListOf<ReservationModel>()
     lateinit  var positionbutton :ImageView
     lateinit  var Img :ImageView

@@ -1,4 +1,4 @@
-package com.example.ProjetParking
+package com.example.ProjetParking.Fragments
 
 import android.content.Context
 import android.content.Intent
@@ -13,6 +13,10 @@ import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.example.ProjetParking.Endpoint
+import com.example.ProjetParking.Models.UserModel
+import com.example.ProjetParking.R
+import com.example.ProjetParking.ViewModels.UserViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient

@@ -1,4 +1,4 @@
-package com.example.ProjetParking
+package com.example.ProjetParking.Models
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName ="reservation", foreignKeys = [ForeignKey(entity= UserModel::class,
     parentColumns=["iduser"] ,childColumns = ["iduser"],
     onUpdate = ForeignKey.CASCADE,
-    onDelete = ForeignKey.CASCADE ),ForeignKey(entity=PlaceModel::class,
+    onDelete = ForeignKey.CASCADE ),ForeignKey(entity= PlaceModel::class,
     parentColumns=["idplace"] ,childColumns = ["idplace"],
     onUpdate = ForeignKey.CASCADE,
     onDelete = ForeignKey.CASCADE )])

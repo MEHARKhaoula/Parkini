@@ -1,6 +1,7 @@
-package com.example.ProjetParking
+package com.example.ProjetParking.Dao
 
 import androidx.room.*
+import com.example.ProjetParking.Models.ParkingModel
 
 
 @Dao

@@ -1,22 +1,20 @@
-package com.example.ProjetParking
+package com.example.ProjetParking.Adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RatingBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.example.ProjetParking.Models.ReservationModel
+import com.example.ProjetParking.R
 
 
 class ReservationAdapter(val context: Context,
-                var data:List<ReservationModel>,
+                         var data:List<ReservationModel>,
                 ):RecyclerView.Adapter<ReservationAdapter.MyViewHolder1>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder1

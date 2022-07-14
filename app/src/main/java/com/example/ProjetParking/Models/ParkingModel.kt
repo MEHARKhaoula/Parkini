@@ -1,4 +1,4 @@
-package com.example.ProjetParking
+package com.example.ProjetParking.Models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

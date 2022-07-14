@@ -1,6 +1,7 @@
-package com.example.ProjetParking
+package com.example.ProjetParking.Dao
 
 import androidx.room.*
+import com.example.ProjetParking.Models.UserModel
 
 
 @Dao
@@ -11,7 +12,7 @@ interface UserDao {
     @Insert
     fun addUsers(vararg users: UserModel)
     @Update
-    fun updateUser(user:UserModel)
+    fun updateUser(user: UserModel)
     @Delete
-    fun deleteUser(user:UserModel)
+    fun deleteUser(user: UserModel)
 }

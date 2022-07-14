@@ -1,8 +1,5 @@
 package com.example.ProjetParking
-import android.content.Context
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +8,10 @@ import android.widget.*
 import androidmads.library.qrgenearator.QRGContents
 import androidmads.library.qrgenearator.QRGEncoder
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
+import com.example.ProjetParking.Models.PlaceModel
+import com.example.ProjetParking.Models.ReservationModel
+import com.example.ProjetParking.ViewModels.PlaceViewModel
+import com.example.ProjetParking.ViewModels.ReservationViewModel
 import kotlinx.coroutines.*
 
 class ReservatindetailsFragment : Fragment() {
@@ -22,8 +22,8 @@ class ReservatindetailsFragment : Fragment() {
     var reservationPlace = mutableListOf<PlaceModel>()
     lateinit var parkingPlace: TextView
     lateinit var numeroreservation: TextView
-    lateinit var reservationViewModel:ReservationViewModel
-    lateinit var placeViewModel:PlaceViewModel
+    lateinit var reservationViewModel: ReservationViewModel
+    lateinit var placeViewModel: PlaceViewModel
 
 
 

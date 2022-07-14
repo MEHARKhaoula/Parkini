@@ -1,20 +1,20 @@
 package com.example.ProjetParking
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import kotlinx.coroutines.*
+import com.example.ProjetParking.Models.PlaceModel
+import com.example.ProjetParking.Models.ReservationModel
+import com.example.ProjetParking.ViewModels.PlaceViewModel
+import com.example.ProjetParking.ViewModels.ReservationListViewModel
+import com.example.ProjetParking.ViewModels.UserViewModel
 import java.text.SimpleDateFormat
-import java.util.*
 
 
 class ReservationListDetailFragment : Fragment() {
@@ -27,8 +27,8 @@ class ReservationListDetailFragment : Fragment() {
 
     var  position: Int = 0
     var placeVide = mutableListOf<PlaceModel>()
-    lateinit var reservationListViewModel:ReservationListViewModel
-    lateinit var placeViewModel:PlaceViewModel
+    lateinit var reservationListViewModel: ReservationListViewModel
+    lateinit var placeViewModel: PlaceViewModel
     var reservationAdded = mutableListOf<ReservationModel>()
 
 

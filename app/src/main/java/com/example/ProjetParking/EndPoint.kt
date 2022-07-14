@@ -1,4 +1,8 @@
 package com.example.ProjetParking
+import com.example.ProjetParking.Models.ParkingModel
+import com.example.ProjetParking.Models.PlaceModel
+import com.example.ProjetParking.Models.ReservationModel
+import com.example.ProjetParking.Models.UserModel
 import com.google.gson.GsonBuilder
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -19,10 +23,10 @@ interface Endpoint {
     suspend fun getPlaceById(@Path("idplace") idplace:Int): Response<List<PlaceModel>>
 
     @POST("setusers")
-    suspend fun setUser(@Body user:UserModel): Response<UserModel>
+    suspend fun setUser(@Body user: UserModel): Response<UserModel>
 
     @POST("setreservation")
-    suspend fun setReservation(@Body reservation:ReservationModel): Response<ReservationModel>
+    suspend fun setReservation(@Body reservation: ReservationModel): Response<ReservationModel>
 
     @GET("getreservations")
     suspend fun getReservations(): Response<List<ReservationModel>>

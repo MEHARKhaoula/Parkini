@@ -1,6 +1,5 @@
-package com.example.ProjetParking
+package com.example.ProjetParking.Fragments
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +11,10 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.example.ProjetParking.Endpoint
+import com.example.ProjetParking.Models.UserModel
+import com.example.ProjetParking.R
+import com.example.ProjetParking.ViewModels.UserViewModel
 import kotlinx.coroutines.*
 
 

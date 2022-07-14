@@ -1,4 +1,4 @@
-package com.example.ProjetParking
+package com.example.ProjetParking.Fragments
 
 import android.os.Build
 import android.os.Bundle
@@ -13,6 +13,15 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ProjetParking.Adapters.ReservationAdapter
+import com.example.ProjetParking.AppDatabase
+import com.example.ProjetParking.Endpoint
+import com.example.ProjetParking.Models.ParkingModel
+import com.example.ProjetParking.Models.PlaceModel
+import com.example.ProjetParking.Models.ReservationModel
+import com.example.ProjetParking.Models.UserModel
+import com.example.ProjetParking.R
+import com.example.ProjetParking.ViewModels.ReservationListViewModel
 import kotlinx.coroutines.*
 
 
