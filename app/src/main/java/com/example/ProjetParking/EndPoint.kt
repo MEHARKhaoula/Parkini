@@ -11,7 +11,7 @@ import retrofit2.http.Path
 
 interface Endpoint {
 
-
+    @GET("reservationgetplace/{idparking}")
     suspend fun getPlaceVide(@Path("idparking") idparking:Int): Response<List<PlaceModel>>
 
 
@@ -52,8 +52,9 @@ interface Endpoint {
             if(endpoint ==null) {
                 val gson =  GsonBuilder()
                     .setDateFormat("dd-MM-YYYY")
+                    .setLenient()
                     .create()
-                endpoint = Retrofit.Builder().baseUrl("https://0c23-129-45-65-124.eu.ngrok.io").addConverterFactory(
+                endpoint = Retrofit.Builder().baseUrl("https://27fd-129-45-76-12.eu.ngrok.io").addConverterFactory(
                     GsonConverterFactory.create(gson)).build().create(
                     Endpoint::class.java)
             }

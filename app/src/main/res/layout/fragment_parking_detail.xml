@@ -60,10 +60,10 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/idimage"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:scaleType="centerCrop"
-                />
+                android:scaleType="centerCrop" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -232,6 +232,7 @@
 
 
                     <ImageView
+                        android:id="@+id/position"
                         android:layout_width="50dp"
                         android:layout_height="30dp"
                         android:layout_centerVertical="true"
@@ -241,7 +242,7 @@
                         android:src="@drawable/position" />
 
                     <TextView
-                        android:id="@+id/textViewlocation"
+                        android:id="@+id/textViewdate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
@@ -325,7 +326,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginRight="10dp"
@@ -348,7 +349,7 @@
 
                     <TextView
 
-                        android:id="@+id/TextViewJour"
+                        android:id="@+id/numeroreservation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="21dp"
@@ -363,7 +364,7 @@
                         android:id="@+id/TextViewHeure"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="80dp"
+                        android:layout_marginLeft="50dp"
                         android:layout_marginTop="15dp"
                         android:text="8:00H  á  20H"
                         android:textColor="#FF5F1F"
@@ -399,7 +400,7 @@
                         android:textStyle="bold" />
 
                     <Button
-                        android:id="@+id/reserver"
+                        android:id="@+id/payer"
                         android:layout_width="160dp"
                         android:layout_height="50dp"
                         android:layout_marginStart="74dp"
@@ -413,6 +414,24 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/usersurname" />
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="380dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal"
+                    android:padding="2sp">
+
+
+
 
 
                 </LinearLayout>

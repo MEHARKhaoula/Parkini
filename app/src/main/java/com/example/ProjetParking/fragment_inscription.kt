@@ -54,11 +54,7 @@ class fragment_inscription : Fragment() {
 
 
 
-        val pref = this.getActivity()?.getSharedPreferences("data", Context.MODE_PRIVATE)
-        val userConnected = pref?.getBoolean("Connected", false)
-        if (userConnected == true) {
-            navController.navigate(R.id.action_loginFragment_to_reservationFragment2)
-        }
+
 
 
 

@@ -94,8 +94,7 @@ class ParkingListFragment : Fragment() {
         val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
             requireActivity().runOnUiThread {
 
-                Toast.makeText(requireActivity(), "Une erreur s'est produite", Toast.LENGTH_SHORT)
-                    .show()
+
             }
         }
 

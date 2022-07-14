@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/parkingListFragment">
+    app:startDestination="@id/myMapFragment">
 
     <fragment
         android:id="@+id/parkingListFragment"
@@ -18,23 +18,34 @@
         android:id="@+id/parkingDetailFragment"
         android:name="com.example.ProjetParking.ParkingDetailFragment"
         android:label="fragment_parking_detail"
-        tools:layout="@layout/fragment_parking_detail" />
+        tools:layout="@layout/fragment_parking_detail" >
+        <action
+            android:id="@+id/action_parkingDetailFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_parkingDetailFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.ProjetParking.LoginFragment"
         android:label="LoginFragment" >
         <action
-            android:id="@+id/action_loginFragment_to_reservationFragment2"
-            app:destination="@id/reservationFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_fragment_inscription"
             app:destination="@id/fragment_inscription" />
+        <action
+            android:id="@+id/action_loginFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/reservationFragment"
         android:name="com.example.ProjetParking.ReservationFragment"
         android:label="fragment_reservation"
-        tools:layout="@layout/fragment_reservation" />
+        tools:layout="@layout/fragment_reservation" >
+        <action
+            android:id="@+id/action_reservationFragment_to_reservationListDetailFragment"
+            app:destination="@id/reservationListDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_inscription"
         android:name="com.example.ProjetParking.fragment_inscription"
@@ -52,6 +63,22 @@
         android:id="@+id/profileFragment"
         android:name="com.example.ProjetParking.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.ProjetParking.PaymentFragment"
+        android:label="PaymentFragment" >
+        <action
+            android:id="@+id/action_paymentFragment_to_reservatindetailsFragment"
+            app:destination="@id/reservatindetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reservationListDetailFragment"
+        android:name="com.example.ProjetParking.ReservationListDetailFragment"
+        android:label="ReservationListDetailFragment" />
+    <fragment
+        android:id="@+id/reservatindetailsFragment"
+        android:name="com.example.ProjetParking.ReservatindetailsFragment"
+        android:label="ReservatindetailsFragment" />
 
 
 </navigation>

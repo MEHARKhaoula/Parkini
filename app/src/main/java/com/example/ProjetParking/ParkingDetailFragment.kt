@@ -1,20 +1,22 @@
 package com.example.ProjetParking
 
-import android.app.DatePickerDialog
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.text.format.DateFormat.is24HourFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import com.google.android.material.timepicker.MaterialTimePicker
-import com.google.android.material.timepicker.TimeFormat
+import com.bumptech.glide.Glide
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -23,17 +25,23 @@ import java.util.*
 class ParkingDetailFragment : Fragment() {
     lateinit var reserver: Button
     lateinit var navController: NavController
-    lateinit var parkingViewModel:ParkingViewModel
+    lateinit var parkingViewModel :ParkingViewModel
     lateinit var heuredebut :String
     lateinit var heurefin : String
     lateinit var userViewModel: UserViewModel
     lateinit var sdf:SimpleDateFormat
     lateinit var  myCalendar:Calendar
-    lateinit var parking:ParkingModel
-
     var  position: Int = 0
-    var search:Boolean=false
-    var placeVide = mutableListOf<Int>()
+    var placeVide = mutableListOf<PlaceModel>()
+    lateinit var reservationViewModel:ReservationViewModel
+    lateinit var placeViewModel:PlaceViewModel
+    var reservationAdded = mutableListOf<ReservationModel>()
+    lateinit  var positionbutton :ImageView
+    lateinit  var Img :ImageView
+
+    var latitude:Double= 0.0
+    var longitude:Double=0.0
+
 
 
 
@@ -48,144 +56,122 @@ class ParkingDetailFragment : Fragment() {
         return view
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
-        reserver = view.findViewById(R.id.reserver) as Button
+        reserver = view.findViewById(R.id.payer) as Button
         navController = Navigation.findNavController(view)
+        reservationViewModel =
+            ViewModelProvider(requireActivity()).get(ReservationViewModel::class.java)
+        placeViewModel = ViewModelProvider(requireActivity()).get(PlaceViewModel::class.java)
+        positionbutton = view.findViewById(R.id.position) as ImageView
+        Img = view.findViewById(R.id.idimage) as ImageView
 
-         position= arguments?.getInt("position")!!
-        search = arguments?.getBoolean("search")!!
+
+        position = arguments?.getInt("position")!!
+
+
 
 
         parkingViewModel = ViewModelProvider(requireActivity()).get(ParkingViewModel::class.java)
-        if(search == true)
-
-             parking= position?.let { parkingViewModel.searchData.get(it) }
-
-        else
-       parking= position?.let { parkingViewModel.data.get(it) }
+        val parking = position?.let { parkingViewModel.data.get(it) }
         if (parking != null) {
             view.findViewById<TextView>(R.id.textViewTitre).text = parking.nom
-            view.findViewById<TextView>(R.id.textViewKilom).text = parking.distance.toString()
+            view.findViewById<TextView>(R.id.textViewKilom).text =
+                parking.distance.toString() + "Km"
             view.findViewById<TextView>(R.id.textViewEtat).text = parking.etat
-            view.findViewById<TextView>(R.id.TextViewTaux).text = (parking.nbrplaceslibres/parking.nbrplaces).toString()
-            view.findViewById<TextView>(R.id.textViewTime).text = parking.heuredebut+""+"a"+""+parking.heurefin
-            view.findViewById<TextView>(R.id.textViewlocation).text = parking.commune
-            view.findViewById<TextView>(R.id.TextViewJour).text =""
-            view.findViewById<TextView>(R.id.TextViewHeure).text = parking.tempsestime.toString()
-            view.findViewById<TextView>(R.id.TextViewPrix).text = ""
+            view.findViewById<TextView>(R.id.TextViewTaux).text =
+                "-" + (parking.nbrplaceslibres / parking.nbrplaces).toString() + "%"
+            view.findViewById<TextView>(R.id.textViewTime).text = parking.tempsestime.toString()
+            view.findViewById<TextView>(R.id.textViewdate).text = parking.commune
+            view.findViewById<TextView>(R.id.numeroreservation).text = "Dimanche"
+            view.findViewById<TextView>(R.id.TextViewHeure).text =
+                parking.heuredebut.format("HH:MM") + "" + "a" + "" + parking.heurefin.format("HH:MM")
+            view.findViewById<TextView>(R.id.TextViewPrix).text = parking.tarif.toString() + "DA"
+            latitude = parking.latitude
+            longitude = parking.longitude
+
+            Glide.with(requireContext()).load( "https://images.unsplash.com/photo-1590674899484-d5640e854abe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFya2luZyUyMGxvdHxlbnwwfHwwfHw%3D&w=1000&q=80").into(Img)
+
+
+
+
+
+
+            System.out.print(placeVide.toString())
+            //Toast.makeText(requireActivity(),placeVide.toString(),Toast.LENGTH_LONG).show()
+
+
         }
 
-        reserver.setOnClickListener{
 
 
+        positionbutton.setOnClickListener {
 
-            myCalendar = Calendar.getInstance()
+            val lati = latitude
+            val longi = longitude
+            val geoLocation =
+                Uri.parse("http://maps.google.com/maps?daddr=" + lati + "," + longi)
+            val intent = Intent(Intent.ACTION_VIEW, geoLocation)
+            requireActivity().startActivity(intent)
 
-            val datePicker = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                myCalendar.set(Calendar.YEAR, year)
-                myCalendar.set(Calendar.MONTH, month)
-                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                updatelabele( myCalendar)
 
-                openTimePicker1()
+        }
+
+        reserver.setOnClickListener {
+
+
+            val pref = this.getActivity()?.getSharedPreferences("data", Context.MODE_PRIVATE)
+            val userConnected = pref?.getBoolean("Connected", false)
+            if (userConnected == true) {
+                val bundle = bundleOf(
+                    "id" to parkingViewModel.data.get(position).idparking,
+                )
+                navController.navigate(
+                    R.id.action_parkingDetailFragment_to_paymentFragment,
+                    bundle
+                )
+
+
+            } else {
+
+                Toast.makeText(
+                    requireActivity(),
+                    "You should login to accomplish this action",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                navController.navigate(
+                    R.id.action_parkingDetailFragment_to_loginFragment
+
+                )
+
 
             }
 
-            DatePickerDialog(requireContext(),
-                R.style.MyDatePickerDialogTheme, datePicker ,myCalendar.get(Calendar.YEAR) , myCalendar.get(Calendar.YEAR)
-                , myCalendar.get(Calendar.DAY_OF_MONTH)).show()
 
         }
 
     }
 
 
-    fun updatelabele(mycalendar:Calendar){
-        val myformat ="dd-MM-YYYY"
-         sdf =SimpleDateFormat(myformat,Locale.FRANCE)
-        Toast.makeText(requireActivity(),"Erreur!",Toast.LENGTH_LONG).show()
-
-        print(sdf.format(mycalendar.time))
-
-
-    }
-
-    fun openTimePicker1(){
-
-        val isSystem24Hour = is24HourFormat(requireContext())
-        val clockFormat= if(isSystem24Hour) TimeFormat.CLOCK_24H else TimeFormat.CLOCK_12H
-
-        val picker1= MaterialTimePicker.Builder()
-            .setTimeFormat(clockFormat)
-            .setHour(12)
-            .setMinute(0)
-            .setTitleText("Heure Debut de réservation")
-            .build()
-
-        picker1.show(childFragmentManager, "TAG")
-
-        picker1.addOnPositiveButtonClickListener {
-            heuredebut = picker1.hour.toString()+":"+picker1.minute.toString()
-            print(heuredebut)
-
-            openTimePicker2()
 
 
 
-        }
-
-    }
-
-
-    fun openTimePicker2(){
-
-        val isSystem24Hour = is24HourFormat(requireContext())
-        val clockFormat= if(isSystem24Hour) TimeFormat.CLOCK_24H else TimeFormat.CLOCK_12H
-
-        val picker1= MaterialTimePicker.Builder()
-            .setTimeFormat(clockFormat)
-            .setHour(12)
-            .setMinute(0)
-            .setTitleText("Heure fin de réservation" )
-            .build()
-
-        picker1.show(childFragmentManager, "TAG")
-
-        picker1.addOnPositiveButtonClickListener {
-            heurefin = picker1.hour.toString()+":"+picker1.minute.toString()
-            print(heurefin)
-
-
-            setReservation(ReservationModel(4, sdf.format(myCalendar.time) ,heuredebut ,heurefin , userViewModel.data.get(0).iduser, 1))
-
-
-        }
-
-
-    }
-
-
-
-    fun setReservation(res: ReservationModel) {
-        val exceptionHandler = CoroutineExceptionHandler{ coroutineContext, throwable ->
-            println("222    "+throwable.localizedMessage)
-
-        }
-
-        CoroutineScope(Dispatchers.IO+exceptionHandler).launch {
-            val response = Endpoint.createEndpoint().setReservation(res)
-            withContext(Dispatchers.Main) {
-                if (response.isSuccessful )  {
-
-                } else
-                {
-                    Toast.makeText(requireActivity(),"Erreur!",Toast.LENGTH_LONG).show()
-
-                }
-            }
-        }
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

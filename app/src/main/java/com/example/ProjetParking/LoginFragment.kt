@@ -106,7 +106,7 @@ class LoginFragment : Fragment() {
 
 
         if (userConnected == true) {
-            navController.navigate(R.id.action_loginFragment_to_reservationFragment2)
+            navController.navigate(R.id.action_loginFragment_to_profileFragment)
         }
 
 
@@ -131,7 +131,7 @@ class LoginFragment : Fragment() {
 
 
                             }
-                            navController.navigate(R.id.action_loginFragment_to_reservationFragment2)
+                            navController.navigate(R.id.action_loginFragment_to_profileFragment)
 
                         } else {
                             Toast.makeText(requireActivity(), "mot de paase ou email incorrect", Toast.LENGTH_LONG).show()
@@ -191,7 +191,7 @@ class LoginFragment : Fragment() {
              userViewModel.data.add(user)
             }
 
-            navController.navigate(R.id.action_loginFragment_to_reservationFragment2)
+            navController.navigate(R.id.action_loginFragment_to_profileFragment)
 
 
 

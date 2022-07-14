@@ -2,6 +2,7 @@ package com.example.ProjetParking
 
 
 
+import android.content.Context
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
@@ -28,7 +29,12 @@ class ProfileFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
+
+
+
+
         val displayMetrics = DisplayMetrics()
         this.activity?.getWindowManager()?.getDefaultDisplay()?.getMetrics(displayMetrics)
         val height = displayMetrics.heightPixels

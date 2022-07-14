@@ -3,7 +3,7 @@ package com.example.ProjetParking
 import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
-import android.os.Handler
+
 import android.os.Looper
 import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
@@ -18,10 +18,11 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import com.google.gson.stream.JsonReader
 import kotlinx.coroutines.*
 import java.text.SimpleDateFormat
 import java.util.*
-
+import com.google.gson.stream.*;
 class PaymentFragment : Fragment() {
 
 
@@ -114,12 +115,13 @@ class PaymentFragment : Fragment() {
                 withContext(Dispatchers.Main) {
 
                     if (response.isSuccessful && response.body() != null) {
+
                         setReservation(ReservationModel(7, sdf.format(myCalendar.time) ,heuredeb ,heuref , 3 , placeVide.get(0).idplace))
 
                         reservationViewModel.data = response.body()!!.toMutableList()
 
                         placeViewModel.data.add(placeVide.get(0))
-                       // navController.navigate(R.id.action_paymentFragment2_to_reservatindetailsFragment)
+                        navController.navigate(R.id.action_paymentFragment_to_reservatindetailsFragment)
 
 
 
@@ -226,6 +228,7 @@ class PaymentFragment : Fragment() {
 
                 Toast.makeText(requireActivity(), "Une erreur s'est produite", Toast.LENGTH_SHORT)
                     .show()
+                throwable.printStackTrace()
             }
         }
 
