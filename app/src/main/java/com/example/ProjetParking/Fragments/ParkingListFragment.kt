@@ -1,6 +1,7 @@
 package com.example.ProjetParking.Fragments
 
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.*
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
@@ -45,6 +46,13 @@ class ParkingListFragment : Fragment() {
         recyclerView=  view.findViewById<RecyclerView>(R.id.recyclerView)
         searchView = view.findViewById(R.id.searchView)
 
+
+        //resizing the searchbar
+        val displayMetrics = DisplayMetrics()
+        this.activity?.getWindowManager()?.getDefaultDisplay()?.getMetrics(displayMetrics)
+        val width = displayMetrics.widthPixels
+
+        searchView.getLayoutParams().width = (0.8*width).toInt()
        recyclerView.layoutManager  = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
 
         if(parkingViewModel.data.size <= 0)
