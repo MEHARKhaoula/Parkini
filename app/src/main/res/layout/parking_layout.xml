@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--! android:drawableLeft="@drawable/ic_baseline_access_time_24"-->
-<!--  android:background="@drawable/rectangle" -->
-<!-- app:shapeAppearanceOverlay="@style/roundedimageview"
- android:fontFamily="@font/montserrat_alternates_bold"
-  android:fontFamily="@font/montserrat_alternates_bold"
-    android:fontFamily="@font/montserrat_medium"
-      android:src="@drawable/parking" -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -20,19 +14,18 @@
 <!--android:background="@drawable/greypurple_circular_border"-->
 
 
-
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_height="110dp"
         android:layout_marginStart="5dp"
-        android:adjustViewBounds="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="fitXY"
 
-        app:shapeAppearanceOverlay="@style/roundedimageview"
-        />
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedimageview" />
 
   <!--  <ImageView
         android:id="@+id/favorite"
@@ -42,13 +35,15 @@
         android:src="@drawable/ic_baseline_favorite_border_24"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/> -->
+        app:layout_constraintTop_toTopOf="parent"/>  -->
     <TextView
         android:id="@+id/textViewEtat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="Ferme"
+        android:padding="2dp"
+        android:textSize="15sp"
         android:textColor="#F00"
         android:background="@drawable/grey_circular_border"
         app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -59,7 +54,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:textSize="15sp"
         android:textColor="#4A9B4D"
+        android:padding="2dp"
         android:text="65%"
         android:background="@drawable/bg_taux"
         app:layout_constraintStart_toEndOf="@+id/textViewEtat"
@@ -72,7 +69,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="-1dp"
         android:text="Parking jardin d'essai"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/textViewEtat"
         app:layout_constraintStart_toEndOf="@+id/imageView"/>
@@ -87,7 +84,7 @@
         android:layout_height="wrap_content"
 
         android:text="Hussein dey . Alger"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/textViewTitre"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitre" />
 
@@ -99,6 +96,7 @@
         android:layout_marginTop="30dp"
         android:drawablePadding="3dp"
         android:text="12,95 Km"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textViewTime"
         app:layout_constraintTop_toBottomOf="@+id/textViewlocation" />
@@ -121,7 +119,7 @@
         android:layout_height="wrap_content"
 
         android:layout_marginTop="30dp"
-
+        android:textSize="16sp"
         android:text="14 min"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textViewlocation"

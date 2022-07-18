@@ -1,5 +1,6 @@
 package com.example.ProjetParking.Fragments
 
+
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -20,10 +21,9 @@ import com.example.ProjetParking.Models.ParkingModel
 import com.example.ProjetParking.Models.PlaceModel
 import com.example.ProjetParking.Models.ReservationModel
 import com.example.ProjetParking.Models.UserModel
-import com.example.ProjetParking.R
 import com.example.ProjetParking.ViewModels.ReservationListViewModel
 import kotlinx.coroutines.*
-
+import com.example.ProjetParking.R
 
 class ReservationFragment : Fragment() {
 
@@ -55,14 +55,13 @@ class ReservationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
-        reservationListViewModel =
-            ViewModelProvider(requireActivity()).get(ReservationListViewModel::class.java)
+        reservationListViewModel = ViewModelProvider(requireActivity()).get(ReservationListViewModel::class.java)
 
         recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewreservation)
         recyclerView.layoutManager =
             LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
 
-        val app = AppDatabase.buildDatabase(requireContext())
+       // val app = AppDatabase.buildDatabase(requireContext())
 
 
 
@@ -75,7 +74,7 @@ class ReservationFragment : Fragment() {
 
 
         } else {
-            //recyclerView.adapter = ReservationAdapter(requireActivity(), reservationListViewModel.data )
+            recyclerView.adapter = ReservationAdapter(requireActivity(), reservationListViewModel.data )
         }
 
 
@@ -86,8 +85,7 @@ class ReservationFragment : Fragment() {
         val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
             requireActivity().runOnUiThread {
 
-                Toast.makeText(requireActivity(), "Une erreur s'est produite", Toast.LENGTH_SHORT)
-                    .show()
+                throwable.printStackTrace()
             }
         }
 

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/bg_circle.xml" value="0.124" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/bg_searchview.xml" value="0.184" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/bg_taux.xml" value="0.184" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/activity_splash_screen.xml" value="0.15260416666666668" />
@@ -10,9 +11,12 @@
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_parking_list.xml" value="0.264" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_payment.xml" value="0.134375" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_profile.xml" value="0.15260416666666668" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_reservation.xml" value="0.25271739130434784" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_reservation_detail.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_reservation_list_detail.xml" value="0.15260416666666668" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_reservation_list_detail_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/parking_layout.xml" value="0.264" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/menu/bootom_menu.xml" value="0.1015625" />
         <entry key="..\:/Users/hp/StudioProjects/Projet_tdm3/app/src/main/res/drawable/background_btn.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/hp/StudioProjects/Projet_tdm3/app/src/main/res/drawable/gradient_background.xml" value="0.1" />
         <entry key="..\:/Users/hp/StudioProjects/Projet_tdm3/app/src/main/res/drawable/grey_border.xml" value="0.19114583333333332" />

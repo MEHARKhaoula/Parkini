@@ -19,7 +19,7 @@
         android:visible="true" />
 
     <item
-
+        android:id="@+id/reservationFragment"
         android:enabled="true"
         android:icon="@drawable/ic_calendar_clock"
 
