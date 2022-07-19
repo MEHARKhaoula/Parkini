@@ -58,7 +58,7 @@ interface Endpoint {
                     .setDateFormat("dd-MM-YYYY")
                     .setLenient()
                     .create()
-                endpoint = Retrofit.Builder().baseUrl("https://5ecc-129-45-58-87.eu.ngrok.io").addConverterFactory(
+                endpoint = Retrofit.Builder().baseUrl("https://1622-129-45-58-87.eu.ngrok.io").addConverterFactory(
                     GsonConverterFactory.create(gson)).build().create(
                     Endpoint::class.java)
             }

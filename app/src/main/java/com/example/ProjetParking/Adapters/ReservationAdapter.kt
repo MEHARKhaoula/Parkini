@@ -5,9 +5,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ProjetParking.Models.ReservationModel
 import com.example.ProjetParking.R
@@ -27,7 +29,7 @@ class ReservationAdapter(val context: Context,
 
     override fun onBindViewHolder(holder: MyViewHolder1, @SuppressLint("RecyclerView") position: Int){
         holder.apply {
-            titre.text = "Reservation"+data[position].numeroreservation.toString()
+            titre.text = "Parking jardin dessai"
             date.text = data[position].date.toString()
             heuredebut.text = data[position].heure_entree
             heurefin.text = data[position].heure_sortie
@@ -41,8 +43,8 @@ class ReservationAdapter(val context: Context,
                         val bundle = bundleOf(
                             "position" to position,
                         )
-                      /*  view.findNavController()
-                            .navigate(R.id.action_reservationFragment_to_reservationListDetailFragment, bundle)*/
+                      view.findNavController()
+                            .navigate(R.id.action_reservationFragment_to_reservationListDetailFragment, bundle)
 
                     }
                 }
@@ -58,7 +60,7 @@ class ReservationAdapter(val context: Context,
         val heurefin = view.findViewById(R.id.heurefin) as TextView
         val date = view.findViewById(R.id.textViewdate) as TextView
         val titre = view.findViewById(R.id.textViewTitre) as TextView
-        val ReservationCard = view.findViewById(R.id.reservationCard) as ConstraintLayout
+        val ReservationCard = view.findViewById(R.id.reservationCard) as LinearLayout
 
 
     }
