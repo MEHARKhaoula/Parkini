@@ -70,9 +70,9 @@ class PaymentFragment : Fragment() {
         navController = Navigation.findNavController(view)
         reservationViewModel = ViewModelProvider(requireActivity()).get(ReservationViewModel::class.java)
         placeViewModel = ViewModelProvider(requireActivity()).get(PlaceViewModel::class.java)
-        getPlaceVide()
-        position = arguments?.getInt("id")!!
 
+        position = arguments?.getInt("id")!!
+        getPlaceVide()
         date.setOnClickListener {
 
             myCalendar = Calendar.getInstance()
@@ -109,21 +109,22 @@ class PaymentFragment : Fragment() {
         }
 
         payer.setOnClickListener{
-
-
+            val reservation =ReservationModel(7, sdf.format(myCalendar.time) ,heuredeb ,heuref , 3 , placeVide.get(0).idplace)
             CoroutineScope(Dispatchers.IO ).launch {
 
-                val response = Endpoint.createEndpoint().getAddedReservation()
+                val response  =  Endpoint.createEndpoint().setReservation(reservation)
+                    //setReservation(ReservationModel(7, sdf.format(myCalendar.time) ,heuredeb ,heuref , 3 , placeVide.get(0).idplace))
+               // val response = Endpoint.createEndpoint().getAddedReservation()
 
                 withContext(Dispatchers.Main) {
 
                     if (response.isSuccessful && response.body() != null) {
 
-                        setReservation(ReservationModel(7, sdf.format(myCalendar.time) ,heuredeb ,heuref , 3 , placeVide.get(0).idplace))
+                    val  res =  response.body()!!.toMutableList()
 
-                        reservationViewModel.data = response.body()!!.toMutableList()
-
+                       reservationViewModel.data.add(reservation)
                         placeViewModel.data.add(placeVide.get(0))
+                        Toast.makeText(requireActivity(), res.toString(), Toast.LENGTH_LONG).show()
                         navController.navigate(R.id.action_paymentFragment_to_reservatindetailsFragment)
 
 
@@ -243,6 +244,8 @@ class PaymentFragment : Fragment() {
                 if (response.isSuccessful && response.body() != null)  {
 
                     placeVide = response.body()!!.toMutableList()
+                    Toast.makeText(requireActivity(),placeVide.toString(),Toast.LENGTH_LONG).show()
+
 
                 } else
                 {

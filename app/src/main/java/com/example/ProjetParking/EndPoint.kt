@@ -26,7 +26,7 @@ interface Endpoint {
     suspend fun setUser(@Body user: UserModel): Response<UserModel>
 
     @POST("setreservation")
-    suspend fun setReservation(@Body reservation: ReservationModel): Response<ReservationModel>
+    suspend fun setReservation(@Body reservation: ReservationModel): Response<List<ReservationModel>>
 
     @GET("getreservations")
     suspend fun getReservations(): Response<List<ReservationModel>>
@@ -58,7 +58,7 @@ interface Endpoint {
                     .setDateFormat("dd-MM-YYYY")
                     .setLenient()
                     .create()
-                endpoint = Retrofit.Builder().baseUrl("https://1622-129-45-58-87.eu.ngrok.io").addConverterFactory(
+                endpoint = Retrofit.Builder().baseUrl("https://3e6c-129-45-58-87.eu.ngrok.io").addConverterFactory(
                     GsonConverterFactory.create(gson)).build().create(
                     Endpoint::class.java)
             }

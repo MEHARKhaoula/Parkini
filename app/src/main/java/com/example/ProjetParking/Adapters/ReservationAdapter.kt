@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
@@ -32,7 +33,7 @@ class ReservationAdapter(val context: Context,
             titre.text = "Parking jardin dessai"
             date.text = data[position].date.toString()
             heuredebut.text = data[position].heure_entree
-            heurefin.text = data[position].heure_sortie
+
 
             ReservationCard.setOnClickListener {
 
@@ -57,10 +58,10 @@ class ReservationAdapter(val context: Context,
 
     class MyViewHolder1(view: View) : RecyclerView.ViewHolder(view) {
         val heuredebut = view.findViewById (R.id.heuredebut) as TextView
-        val heurefin = view.findViewById(R.id.heurefin) as TextView
+
         val date = view.findViewById(R.id.textViewdate) as TextView
         val titre = view.findViewById(R.id.textViewTitre) as TextView
-        val ReservationCard = view.findViewById(R.id.reservationCard) as LinearLayout
+        val ReservationCard = view.findViewById(R.id.reservationCard) as RelativeLayout
 
 
     }

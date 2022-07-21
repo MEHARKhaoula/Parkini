@@ -52,8 +52,8 @@ class ReservatindetailsFragment : Fragment() {
 
 
 
-        //Toast.makeText(requireActivity(),  reservationAdded.toString(), Toast.LENGTH_SHORT)
-        // .show()
+        Toast.makeText(requireActivity(),  reservationAdded.toString(), Toast.LENGTH_SHORT)
+         .show()
 
 
 

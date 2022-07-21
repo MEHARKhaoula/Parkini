@@ -3,10 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/background_btn.xml" value="0.172" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/background_btn_2.xml" value="0.2265" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/bg_circle.xml" value="0.124" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/bg_horizontal_dotted_line.xml" value="0.1" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/bg_searchview.xml" value="0.184" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/bg_taux.xml" value="0.184" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/circle.xml" value="0.149" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/dotted.xml" value="0.1" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/grey_circular_border.xml" value="0.1715" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/greypurple_circular_border.xml" value="0.1715" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/horizontal.xml" value="0.1" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/strongpurple_circular_border.xml" value="0.172" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/drawable/two_circle.xml" value="0.127" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/activity_splash_screen.xml" value="0.15260416666666668" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_login.xml" value="0.16302083333333334" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_parking_detail.xml" value="0.1" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_parking_list.xml" value="0.264" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_payment.xml" value="0.134375" />
@@ -16,7 +27,7 @@
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_reservation_list_detail.xml" value="0.15260416666666668" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/fragment_reservation_list_detail_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/parking_layout.xml" value="0.264" />
-        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/reservation_layout.xml" value="0.1634963768115942" />
+        <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/layout/reservation_layout.xml" value="0.35910224438902744" />
         <entry key="..\:/Users/Khaoula/Desktop/Nouveau dossier/ParkMobile/app/src/main/res/menu/bootom_menu.xml" value="0.1015625" />
         <entry key="..\:/Users/hp/StudioProjects/Projet_tdm3/app/src/main/res/drawable/background_btn.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/hp/StudioProjects/Projet_tdm3/app/src/main/res/drawable/gradient_background.xml" value="0.1" />
