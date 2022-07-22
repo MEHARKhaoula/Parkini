@@ -30,9 +30,10 @@ class ReservationAdapter(val context: Context,
 
     override fun onBindViewHolder(holder: MyViewHolder1, @SuppressLint("RecyclerView") position: Int){
         holder.apply {
-            titre.text = "Parking jardin dessai"
-            date.text = data[position].date.toString()
-            heuredebut.text = data[position].heure_entree
+            titre.text = data[position].nom
+            tarif.text = data[position].tarif.toInt().toString()+" DA"
+            date.text = data[position].date+" - "+data[position].heure_entree
+            heuredebut.text = data[position].date+" - "+data[position].heure_sortie
 
 
             ReservationCard.setOnClickListener {
@@ -62,6 +63,7 @@ class ReservationAdapter(val context: Context,
         val date = view.findViewById(R.id.textViewdate) as TextView
         val titre = view.findViewById(R.id.textViewTitre) as TextView
         val ReservationCard = view.findViewById(R.id.reservationCard) as RelativeLayout
+        val tarif = view.findViewById(R.id.textViewTarif) as TextView
 
 
     }

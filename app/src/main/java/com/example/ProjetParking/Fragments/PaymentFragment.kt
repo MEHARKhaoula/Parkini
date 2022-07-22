@@ -42,6 +42,8 @@ class PaymentFragment : Fragment() {
     lateinit var sdf: SimpleDateFormat
     lateinit var  myCalendar:Calendar
     var  position: Int = 0
+    var  nom: String = "0"
+    var  tarif: Double = 0.0
     var placeVide = mutableListOf<PlaceModel>()
     lateinit var reservationViewModel: ReservationViewModel
     lateinit var placeViewModel: PlaceViewModel
@@ -72,6 +74,8 @@ class PaymentFragment : Fragment() {
         placeViewModel = ViewModelProvider(requireActivity()).get(PlaceViewModel::class.java)
 
         position = arguments?.getInt("id")!!
+        nom = arguments?.getString("nom")!!
+        tarif =  arguments?.getDouble("tarif")!!
         getPlaceVide()
         date.setOnClickListener {
 
@@ -109,7 +113,7 @@ class PaymentFragment : Fragment() {
         }
 
         payer.setOnClickListener{
-            val reservation =ReservationModel(7, sdf.format(myCalendar.time) ,heuredeb ,heuref , 3 , placeVide.get(0).idplace)
+            val reservation =ReservationModel(7, sdf.format(myCalendar.time) ,heuredeb ,heuref , 3 , placeVide.get(0).idplace,nom,tarif)
             CoroutineScope(Dispatchers.IO ).launch {
 
                 val response  =  Endpoint.createEndpoint().setReservation(reservation)

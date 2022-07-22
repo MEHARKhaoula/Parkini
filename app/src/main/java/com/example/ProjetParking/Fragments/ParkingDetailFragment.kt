@@ -135,6 +135,8 @@ class ParkingDetailFragment : Fragment() {
             if (userConnected == true) {
                 val bundle = bundleOf(
                     "id" to parkingViewModel.data.get(position).idparking,
+                    "nom" to parkingViewModel.data.get(position).nom,
+                    "tarif" to parkingViewModel.data.get(position).tarif
                 )
                 navController.navigate(
                     R.id.action_parkingDetailFragment_to_paymentFragment,
