@@ -128,7 +128,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="55dp"
                         android:layout_marginTop="15dp"
-                        android:text="8:00H  á  20H"
+                        android:text="21-07-2022"
                         android:textColor="#FF5F1F"
                         android:textSize="16sp" />
 
@@ -181,7 +181,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="80dp"
                         android:layout_marginTop="15dp"
-                        android:text="8:00H  á  20H"
+                        android:text="8:00H"
                         android:textColor="#FF5F1F"
                         android:textSize="16sp" />
 
@@ -232,7 +232,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="100dp"
                         android:layout_marginTop="15dp"
-                        android:text="8:00H  á  20H"
+                        android:text="8:00H"
                         android:textColor="#FF5F1F"
                         android:textSize="16sp" />
 

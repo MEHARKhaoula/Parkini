@@ -82,57 +82,6 @@
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="3sp">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:padding="4dp"
-                        android:src="@drawable/starfilled" />
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginLeft="-6dp"
-                        android:padding="4dp"
-
-                        android:src="@drawable/starfilled" />
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginLeft="-6dp"
-                        android:padding="4dp"
-
-                        android:src="@drawable/starfilled" />
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginLeft="-6dp"
-                        android:padding="4dp"
-
-                        android:src="@drawable/starfilled" />
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginLeft="-6dp"
-                        android:padding="4dp"
-                        android:src="@drawable/star" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="1dp"
-                        android:text="294 Review"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
-
-                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -141,29 +90,7 @@
                 android:layout_alignParentEnd="true"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="120dp"
-                    android:layout_height="35dp"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/grey_circular_border">
 
-                    <ImageView
-                        android:layout_width="20sp"
-                        android:layout_height="20sp"
-                        android:layout_marginLeft="7dp"
-                        android:layout_marginTop="8dp"
-                        android:src="@drawable/car" />
-
-                    <TextView
-                        android:id="@+id/textViewKilom"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="21dp"
-                        android:layout_marginTop="5dp"
-                        android:text="24320"
-                        android:textColor="#FF5F1F"
-                        android:textSize="20sp" />
-                </LinearLayout>
 
 
                 <LinearLayout
@@ -174,23 +101,9 @@
                     android:layout_marginLeft="10dp">
 
 
-                    <TextView
-                        android:id="@+id/textViewEtat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="0dp"
-                        android:text="Fermé"
-                        android:textColor="#4A9B4D"
-                        android:textSize="17sp" />
 
-                    <TextView
-                        android:id="@+id/TextViewTaux"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:text="-65%"
-                        android:textColor="#5F595F"
-                        android:textSize="17sp" />
+
+
 
 
                 </LinearLayout>
@@ -202,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="20dp">
 
             <LinearLayout
                 android:layout_width="150dp"
@@ -303,7 +216,7 @@
             android:orientation="vertical" android:layout_gravity=""
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="30dp">
 
             <TextView
 
@@ -412,7 +325,7 @@
                     android:id="@+id/detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="80dp"
+                    android:layout_marginLeft="130dp"
                     android:layout_marginTop="15dp"
                     android:text="8:00H  á  20H"
                     android:textColor="#FF5F1F"
@@ -463,7 +376,7 @@
                     android:id="@+id/heurefin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginLeft="150dp"
                     android:layout_marginTop="15dp"
                     android:text="8:00H  á  20H"
                     android:textColor="#FF5F1F"
@@ -492,7 +405,7 @@
 
 
                 <LinearLayout
-                    android:layout_width="150dp"
+                    android:layout_width="200dp"
                     android:layout_height="150dp"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"

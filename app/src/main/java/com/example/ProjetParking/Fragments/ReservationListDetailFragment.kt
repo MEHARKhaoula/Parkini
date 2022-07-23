@@ -67,7 +67,10 @@ class ReservationListDetailFragment : Fragment() {
         val reservation= position?.let { reservationListViewModel.data.get(it) }
         if (reservation != null) {
 
-            view.findViewById<TextView>(R.id.numeroreservation).text =reservation.numeroreservation.toString()
+            view.findViewById<TextView>(R.id.numeroreservation).text ="Reservation numero "+reservation.numeroreservation.toString()
+            view.findViewById<TextView>(R.id.dateres).text = reservation.date
+            view.findViewById<TextView>(R.id.detail).text = reservation.heure_entree
+            view.findViewById<TextView>(R.id.heurefin).text = reservation.heure_sortie
 
         }
 

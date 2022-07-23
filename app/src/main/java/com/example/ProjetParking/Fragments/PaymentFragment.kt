@@ -185,8 +185,8 @@ class PaymentFragment : Fragment() {
 
         picker1.addOnPositiveButtonClickListener {
 
-            heuredeb =picker1.hour.toString() +":"+picker1.minute.toString()
-            heuredebut.text = picker1.hour.toString() +":"+picker1.minute.toString()
+            heuredeb =picker1.hour.toString() +":"+picker1.minute.toString()+"H"
+            heuredebut.text = picker1.hour.toString() +":"+picker1.minute.toString()+"H"
 
 
 
@@ -211,8 +211,8 @@ class PaymentFragment : Fragment() {
 
         picker1.addOnPositiveButtonClickListener {
 
-            heuref = picker1.hour.toString()+":"+picker1.minute.toString()
-            heurefin.text = picker1.hour.toString()+":"+picker1.minute.toString()
+            heuref = picker1.hour.toString()+":"+picker1.minute.toString()+"H"
+            heurefin.text = picker1.hour.toString()+":"+picker1.minute.toString()+"H"
 
 
 
