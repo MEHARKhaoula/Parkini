@@ -6,8 +6,8 @@
     android:layout_height="wrap_content" android:id="@+id/parkingCard"
     android:paddingStart="4dp"
     android:padding="10dp"
-    android:layout_margin="5dp"
-    android:elevation="0dp"
+    android:layout_margin="7dp"
+
     android:background="@drawable/greypurple_circular_border"
     >
 
@@ -44,8 +44,8 @@
         android:text="Ferme"
         android:padding="2dp"
         android:textSize="15sp"
-        android:textColor="#F00"
-        android:background="@drawable/grey_circular_border"
+        android:textColor="#4A9B4D"
+        android:background="@drawable/bg_taux"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,10 +55,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:textSize="15sp"
-        android:textColor="#4A9B4D"
+
         android:padding="2dp"
         android:text="65%"
-        android:background="@drawable/bg_taux"
+
+        android:textColor="#F00"
+        android:background="@drawable/grey_circular_border"
         app:layout_constraintStart_toEndOf="@+id/textViewEtat"
         app:layout_constraintTop_toTopOf="parent" />
 

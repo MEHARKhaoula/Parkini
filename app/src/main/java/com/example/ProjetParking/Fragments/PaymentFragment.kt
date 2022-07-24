@@ -125,10 +125,10 @@ class PaymentFragment : Fragment() {
                     if (response.isSuccessful && response.body() != null) {
 
                     val  res =  response.body()!!.toMutableList()
-
+                        val reservation =ReservationModel(res.get(0).numeroreservation, sdf.format(myCalendar.time) ,heuredeb ,heuref , 3 , placeVide.get(0).idplace,nom,tarif)
                        reservationViewModel.data.add(reservation)
                         placeViewModel.data.add(placeVide.get(0))
-                        Toast.makeText(requireActivity(), res.toString(), Toast.LENGTH_LONG).show()
+
                         navController.navigate(R.id.action_paymentFragment_to_reservatindetailsFragment)
 
 
@@ -248,7 +248,7 @@ class PaymentFragment : Fragment() {
                 if (response.isSuccessful && response.body() != null)  {
 
                     placeVide = response.body()!!.toMutableList()
-                    Toast.makeText(requireActivity(),placeVide.toString(),Toast.LENGTH_LONG).show()
+
 
 
                 } else

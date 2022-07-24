@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         parkingViewModel = ViewModelProvider(this).get(ParkingViewModel::class.java)
-        getParkings()
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
@@ -40,31 +40,5 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun getParkings(){
-        val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
-            this.runOnUiThread {
 
-
-            }
-        }
-
-        CoroutineScope(Dispatchers.IO+exceptionHandler).launch {
-            val response = Endpoint.createEndpoint().getParkings()
-            withContext(Dispatchers.Main) {
-
-
-                if (response.isSuccessful && response.body() != null)  {
-
-                    parkingViewModel.data = response.body()!!.toMutableList()
-
-
-                } else
-                {
-
-
-
-                }
-            }
-        }
-    }
 }

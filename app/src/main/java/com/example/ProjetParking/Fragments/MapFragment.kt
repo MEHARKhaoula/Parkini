@@ -75,7 +75,7 @@ class MyMapFragment : SupportMapFragment(), OnMapReadyCallback {
 
     override fun onMapReady(gmap: GoogleMap) {
         parkingViewModel = ViewModelProvider(requireActivity()).get(ParkingViewModel::class.java)
-
+        getParkings()
    fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
 
         googleMap = gmap
@@ -83,9 +83,9 @@ class MyMapFragment : SupportMapFragment(), OnMapReadyCallback {
 
         googleMap!!.addMarker(MarkerOptions().position(LatLng(36.73986,3.10583)).title("I am here").icon(
             this.activity?.let { bitmapDescriptorFromVector(it, R.drawable.ic_baseline_person_pin_circle_24) }))
-        googleMap!!.animateCamera(CameraUpdateFactory.zoomTo( 15.0f))
+        googleMap!!.animateCamera(CameraUpdateFactory.zoomTo( 10.0f))
         googleMap!!.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(36.73986,3.10583) ,
-            15.0F
+            10.0F
         ))
 
         for(item in  parkingViewModel.data )
@@ -116,6 +116,46 @@ class MyMapFragment : SupportMapFragment(), OnMapReadyCallback {
             val bitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888)
             draw(Canvas(bitmap))
             BitmapDescriptorFactory.fromBitmap(bitmap)
+        }
+    }
+
+
+    fun getParkings(){
+        val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+            requireActivity().runOnUiThread {
+
+
+            }
+        }
+
+        CoroutineScope(Dispatchers.IO+exceptionHandler).launch {
+            val response = Endpoint.createEndpoint().getParkings()
+            withContext(Dispatchers.Main) {
+
+
+                if (response.isSuccessful && response.body() != null)  {
+
+                    parkingViewModel.data = response.body()!!.toMutableList()
+                    for(item in  parkingViewModel.data )
+                    {
+
+                        googleMap!!.addMarker(MarkerOptions().position(LatLng(item.latitude,item.longitude)).title(item.nom).icon(
+                            requireActivity()?.let { bitmapDescriptorFromVector(it, R.drawable.ic_parking_location_svgrepo_com) }))
+                        //   googleMap!!.animateCamera(CameraUpdateFactory.zoomTo( 10.0f))
+                        /*   googleMap!!.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(item.latitude,item.longitude) ,
+                               10.0F
+                           ))*/
+                    }
+
+
+
+                } else
+                {
+
+
+
+                }
+            }
         }
     }
 

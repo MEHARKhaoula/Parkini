@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidmads.library.qrgenearator.QRGContents
+import androidmads.library.qrgenearator.QRGEncoder
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -71,7 +74,12 @@ class ReservationListDetailFragment : Fragment() {
             view.findViewById<TextView>(R.id.dateres).text = reservation.date
             view.findViewById<TextView>(R.id.detail).text = reservation.heure_entree
             view.findViewById<TextView>(R.id.heurefin).text = reservation.heure_sortie
+           val codeQR = view.findViewById(R.id.CodeQR) as ImageView
 
+            val encoder = QRGEncoder(reservation.numeroreservation.toString(), null , QRGContents.Type.TEXT, 800  )
+
+
+            codeQR.setImageBitmap(encoder.bitmap)
         }
 
 

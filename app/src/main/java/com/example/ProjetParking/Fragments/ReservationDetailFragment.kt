@@ -47,17 +47,6 @@ class ReservatindetailsFragment : Fragment() {
 
         reservationViewModel = ViewModelProvider(requireActivity()).get(ReservationViewModel::class.java)
         placeViewModel = ViewModelProvider(requireActivity()).get(PlaceViewModel::class.java)
-
-
-
-
-
-        Toast.makeText(requireActivity(),  reservationAdded.toString(), Toast.LENGTH_SHORT)
-         .show()
-
-
-
-
         codeQR = view.findViewById(R.id.CodeQR) as ImageView
         parkingPlace = view.findViewById(R.id.idplace) as TextView
         numeroreservation = view.findViewById(R.id.numeroreservation) as TextView
@@ -66,7 +55,7 @@ class ReservatindetailsFragment : Fragment() {
 
 
         parkingPlace.text = placeViewModel.data.get(0).numero_place.toString()
-        numeroreservation.text = "Réservation numéro "+ reservationViewModel.data.get(0).numeroreservation+1.toString()
+        numeroreservation.text = "Réservation numéro "+ reservationViewModel.data.get(0).numeroreservation.toString()
 
 
         val encoder = QRGEncoder(reservationViewModel.data.get(0).numeroreservation.toString(), null , QRGContents.Type.TEXT, 800  )
